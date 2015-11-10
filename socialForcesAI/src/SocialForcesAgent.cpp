@@ -193,7 +193,7 @@ void SocialForcesAgent::reset(const SteerLib::AgentInitialConditions & initialCo
 				(
 					(
 						Util::Vector(goalDirection.x, 0.0f, goalDirection.z) *
-						PERFERED_SPEED
+						PREFERED_SPEED
 					)
 				- velocity()
 				)
@@ -570,6 +570,7 @@ Util::Vector SocialForcesAgent::calcWallRepulsionForce(float dt)
 			}
 			else
 			{
+				std::cout << "it's a flat wall";
 				Util::Vector wall_normal = calcWallNormal( tmp_ob );
 				std::pair<Util::Point,Util::Point> line = calcWallPointsFromNormal(tmp_ob, wall_normal);
 				// Util::Point midpoint = Util::Point((line.first.x+line.second.x)/2, ((line.first.y+line.second.y)/2)+1,
@@ -765,7 +766,7 @@ void SocialForcesAgent::computeNeighbors()
 	}
 }*/
 
-
+// I've modified code here
 void SocialForcesAgent::updateAI(float timeStamp, float dt, unsigned int frameNumber)
 {
 	// std::cout << "_SocialForcesParams.rvo_max_speed " << _SocialForcesParams._SocialForcesParams.rvo_max_speed << std::endl;
@@ -796,10 +797,14 @@ void SocialForcesAgent::updateAI(float timeStamp, float dt, unsigned int frameNu
 	{
 		goalDirection = normalize(goalInfo.targetLocation - position());
 	}
-	// _prefVelocity = goalDirection * PERFERED_SPEED;
-	Util::Vector prefForce = (((goalDirection * PERFERED_SPEED) - velocity()) / (_SocialForcesParams.sf_acceleration/dt)); //assumption here
+	//_prefVelocity = goalDirection * PREFERED_SPEED;
+
+	// my contribution
+	Util::Vector prefForce = (ACCELERATION) * ((PREFERED_SPEED * goalDirection) - _velocity);
+	//Util::Vector prefForce = (((goalDirection * PREFERED_SPEED) - velocity()) / (_SocialForcesParams.sf_acceleration/dt)); //assumption here
+	//prefForce = prefForce + velocity();
+	//_velocity = prefForce;
 	prefForce = prefForce + velocity();
-	// _velocity = prefForce;
 
 	Util::Vector repulsionForce = calcRepulsionForce(dt);
 	if ( repulsionForce.x != repulsionForce.x)
@@ -808,7 +813,7 @@ void SocialForcesAgent::updateAI(float timeStamp, float dt, unsigned int frameNu
 		repulsionForce = velocity();
 		// throw GenericException("SocialForces numerical issue");
 	}
-	Util::Vector proximityForce = calcProximityForce(dt);
+	Util::Vector proximityForce = calcProximityForce(dt) * 10;
 // #define _DEBUG_ 1
 #ifdef _DEBUG_
 	std::cout << "agent" << id() << " repulsion force " << repulsionForce << std::endl;
