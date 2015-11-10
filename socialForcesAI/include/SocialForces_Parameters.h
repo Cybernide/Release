@@ -21,7 +21,7 @@
 
 //ACCELERATION (0.4 + static_cast <float> (rand()) /( static_cast <float> (RAND_MAX/(0.1-0.8)))); // = v/A
 //PERSONAL_SPACE_THRESHOLD (0.3 + static_cast <float> (rand()) /( static_cast <float> (RAND_MAX/(0.3-0.8)))); // not defined in HiDAC papaer
-#define ACCELERATION 0.3
+#define ACCELERATION 0.5
 #define PERSONAL_SPACE_THRESHOLD 0.2
 #define AGENT_REPULSION_IMPORTANCE 0.3; // in HiDAC
 #define QUERY_RADIUS 9.0f // not defined in paper

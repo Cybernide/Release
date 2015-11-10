@@ -497,6 +497,7 @@ Util::Vector SocialForcesAgent::calcAgentRepulsionForce(float dt)
 	return agent_repulsion_force;
 }
 
+// I modified this
 Util::Vector SocialForcesAgent::calcWallRepulsionForce(float dt)
 {
 
@@ -524,93 +525,49 @@ Util::Vector SocialForcesAgent::calcWallRepulsionForce(float dt)
 		{
 			continue;
 		}
-		if ( tmp_ob->computePenetration(this->position(), this->radius()) > 0.000001 )
+		if ( tmp_ob->computePenetration(this->position(), this->radius()) > 0.00001 )
 		{
-			CircleObstacle * cir_obs = dynamic_cast<SteerLib::CircleObstacle *>(tmp_ob);
-			if ( cir_obs != NULL && USE_CIRCLES )
-			{
-				// std::cout << "Intersected circle obstacle" << std::endl;
-				Util::Vector wall_normal = position() - cir_obs->position();
-				// wall distance
-				float distance = wall_normal.length() - cir_obs->radius();
-
-				wall_normal = normalize(wall_normal);
-				wall_repulsion_force = wall_repulsion_force +
-					((
-						(
-							(
-									wall_normal
-							)
-							*
-							(
-								radius() +
-								_SocialForcesParams.sf_personal_space_threshold -
-								(
-									distance
-								)
-							)
-						)
-						/
-						distance
-					)* _SocialForcesParams.sf_body_force * dt);
-
+			Util::Vector wall_normal = calcWallNormal( tmp_ob );
+			std::pair<Util::Point,Util::Point> line = calcWallPointsFromNormal(tmp_ob, wall_normal);
+			// Util::Point midpoint = Util::Point((line.first.x+line.second.x)/2, ((line.first.y+line.second.y)/2)+1,
+			// 	(line.first.z+line.second.z)/2);
+			std::pair<float, Util::Point> min_stuff = minimum_distance(line.first, line.second, position());
+			// wall distance
+			wall_repulsion_force = wall_repulsion_force +
+					//((
+					//	(
+					//		(
+					//				wall_normal
+					//		)
+					//		*
+					//		(
+					//			radius() +
+					//			_SocialForcesParams.sf_personal_space_threshold -
+					//			(
+					//				min_stuff.first
+					//			)
+					//		)
+					//	)
+					//	/
+					//	min_stuff.first
+					//)* _SocialForcesParams.sf_body_force * dt);
+					(wall_normal * ((radius() + _SocialForcesParams.sf_personal_space_threshold - min_stuff.first)/pow(min_stuff.first - radius(), 1.0)));
 				// tangential force
 				// std::cout << "wall tangent " << rightSideInXZPlane(wall_normal) <<
 					// 	" dot is " << dot(forward(),  rightSideInXZPlane(wall_normal)) <<
 						// std::endl;
-				wall_repulsion_force = wall_repulsion_force +
-				(
-					dot(forward(),  rightSideInXZPlane(wall_normal))
-					*
-					rightSideInXZPlane(wall_normal)
-					*
-					cir_obs->computePenetration(this->position(), this->radius())
-				)* _SocialForcesParams.sf_sliding_friction_force * dt;
-
-			}
-			else
-			{
-				std::cout << "it's a flat wall";
-				Util::Vector wall_normal = calcWallNormal( tmp_ob );
-				std::pair<Util::Point,Util::Point> line = calcWallPointsFromNormal(tmp_ob, wall_normal);
-				// Util::Point midpoint = Util::Point((line.first.x+line.second.x)/2, ((line.first.y+line.second.y)/2)+1,
-					// 	(line.first.z+line.second.z)/2);
-				std::pair<float, Util::Point> min_stuff = minimum_distance(line.first, line.second, position());
-				// wall distance
-				wall_repulsion_force = wall_repulsion_force +
-					((
-						(
-							(
-									wall_normal
-							)
-							*
-							(
-								radius() +
-								_SocialForcesParams.sf_personal_space_threshold -
-								(
-									min_stuff.first
-								)
-							)
-						)
-						/
-						min_stuff.first
-					)* _SocialForcesParams.sf_body_force * dt);
-				// tangential force
-				// std::cout << "wall tangent " << rightSideInXZPlane(wall_normal) <<
-					// 	" dot is " << dot(forward(),  rightSideInXZPlane(wall_normal)) <<
-						// std::endl;
-				wall_repulsion_force = wall_repulsion_force +
-				(
-					dot(forward(),  rightSideInXZPlane(wall_normal))
-					*
-					rightSideInXZPlane(wall_normal)
-					*
-					tmp_ob->computePenetration(this->position(), this->radius())
-				)* _SocialForcesParams.sf_sliding_friction_force * dt;
+				//wall_repulsion_force = wall_repulsion_force +
+				//(
+				//	dot(forward(),  rightSideInXZPlane(wall_normal))
+				//	*
+				//	rightSideInXZPlane(wall_normal)
+				//	*
+				//	tmp_ob->computePenetration(this->position(), this->radius())
+				//)* _SocialForcesParams.sf_sliding_friction_force * dt;
 			}
 		}
 
-	}
+
 	return wall_repulsion_force;
 }
 
