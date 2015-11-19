@@ -1,0 +1,57 @@
+﻿Build started 09/11/2015 9:50:04 PM.
+     1>Project "D:\Users\Cybernide\Documents\SteerSuite\Release\build\vs2012\steerlib.vcxproj" on node 2 (Build target(s)).
+     1>Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"..\bin\steerlib.dll" /INCREMENTAL:NO /NOLOGO /LIBPATH:..\lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"..\bin\steerlib.pdb" /SUBSYSTEM:WINDOWS /OPT:REF /OPT:ICF /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"..\bin\steerlib.lib" /MACHINE:X64 /DLL obj\x64\Release\steerlib\AgentInterface.obj
+         obj\x64\Release\steerlib\AgentMetricsCollector.obj
+         obj\x64\Release\steerlib\BehaviorParameter.obj
+         obj\x64\Release\steerlib\Behaviour.obj
+         obj\x64\Release\steerlib\BenchmarkEngine.obj
+         obj\x64\Release\steerlib\BoxObstacle.obj
+         obj\x64\Release\steerlib\Camera.obj
+         obj\x64\Release\steerlib\CircleObstacle.obj
+         obj\x64\Release\steerlib\Clock.obj
+         obj\x64\Release\steerlib\CommandLineParser.obj
+         obj\x64\Release\steerlib\CompositeTechnique01.obj
+         obj\x64\Release\steerlib\CompositeTechnique02.obj
+         obj\x64\Release\steerlib\CompositeTechniqueEntropy.obj
+         obj\x64\Release\steerlib\CompositeTechniqueGraph.obj
+         obj\x64\Release\steerlib\CompositeTechniquePLE.obj
+         obj\x64\Release\steerlib\DrawLib.obj
+         obj\x64\Release\steerlib\DynamicLibrary.obj
+         obj\x64\Release\steerlib\FrameSaver.obj
+         obj\x64\Release\steerlib\GridDatabase2D.obj
+         obj\x64\Release\steerlib\GridDatabasePlanningDomain.obj
+         obj\x64\Release\steerlib\HighResCounter.obj
+         obj\x64\Release\steerlib\MemoryMapper.obj
+         obj\x64\Release\steerlib\Misc.obj
+         obj\x64\Release\steerlib\OrientedBoxObstacle.obj
+         obj\x64\Release\steerlib\OrientedWallObstacle.obj
+         obj\x64\Release\steerlib\PerformanceProfiler.obj
+         obj\x64\Release\steerlib\PolygonObstacle.obj
+         obj\x64\Release\steerlib\RecFilePlayerModule.obj
+         obj\x64\Release\steerlib\RecFileReader.obj
+         obj\x64\Release\steerlib\RecFileWriter.obj
+         obj\x64\Release\steerlib\SimulationEngine.obj
+         obj\x64\Release\steerlib\SimulationMetricsCollector.obj
+         obj\x64\Release\steerlib\SimulationOptions.obj
+         obj\x64\Release\steerlib\SimulationRecorderModule.obj
+         obj\x64\Release\steerlib\StateMachine.obj
+         obj\x64\Release\steerlib\SteeringCommand.obj
+         obj\x64\Release\steerlib\TestCasePlayerModule.obj
+         obj\x64\Release\steerlib\TestCaseReader.obj
+         obj\x64\Release\steerlib\TestCaseReaderPrivate.obj
+         obj\x64\Release\steerlib\TestCaseWriter.obj
+         obj\x64\Release\steerlib\ThreadedTaskManager.obj
+         obj\x64\Release\steerlib\XMLParser.obj
+         obj\x64\Release\steerlib\ticpp.obj
+         obj\x64\Release\steerlib\tinystr.obj
+         obj\x64\Release\steerlib\tinyxml.obj
+         obj\x64\Release\steerlib\tinyxmlerror.obj
+         obj\x64\Release\steerlib\tinyxmlparser.obj
+         D:\Users\Cybernide\Documents\SteerSuite\Release\build\bin\util.lib
+     1>LINK : fatal error LNK1104: cannot open file 'glut32.lib'
+     1>Done Building Project "D:\Users\Cybernide\Documents\SteerSuite\Release\build\vs2012\steerlib.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:03.90

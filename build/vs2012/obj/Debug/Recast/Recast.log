@@ -1,0 +1,37 @@
+﻿Build started 22/10/2015 8:50:29 PM.
+     1>Project "D:\Users\Cybernide\Documents\SteerSuite\Release\build\vs2012\Recast.vcxproj" on node 3 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I..\..\navmeshBuilder\include /I..\..\external\recastnavigation\Recast\Include /I..\..\util\include /ZI /nologo /W4 /WX- /Od /Oy- /D ENABLE_GUI /D ENABLE_GLFW /D DEBUG /D WIN32 /D _WINDOWS /D _MBCS /Gm /EHsc /RTCc /RTC1 /MDd /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"obj\Debug\Recast\\" /Fd"..\bin\Recast.pdb" /Gd /TP /analyze- /errorReport:prompt -std=c++0x -ggdb -fPIC ..\..\external\recastnavigation\Recast\Source\Recast.cpp ..\..\external\recastnavigation\Recast\Source\RecastAlloc.cpp ..\..\external\recastnavigation\Recast\Source\RecastArea.cpp ..\..\external\recastnavigation\Recast\Source\RecastContour.cpp ..\..\external\recastnavigation\Recast\Source\RecastFilter.cpp ..\..\external\recastnavigation\Recast\Source\RecastLayers.cpp ..\..\external\recastnavigation\Recast\Source\RecastMesh.cpp ..\..\external\recastnavigation\Recast\Source\RecastMeshDetail.cpp ..\..\external\recastnavigation\Recast\Source\RecastRasterization.cpp ..\..\external\recastnavigation\Recast\Source\RecastRegion.cpp
+     1>cl : Command line warning D9002: ignoring unknown option '-std=c++0x'
+     1>cl : Command line warning D9002: ignoring unknown option '-ggdb'
+     1>cl : Command line warning D9002: ignoring unknown option '-fPIC'
+         RecastRegion.cpp
+         RecastRasterization.cpp
+         RecastMeshDetail.cpp
+         RecastMesh.cpp
+         RecastLayers.cpp
+         RecastFilter.cpp
+         RecastContour.cpp
+         RecastArea.cpp
+         RecastAlloc.cpp
+         Recast.cpp
+     1>d:\users\cybernide\documents\steersuite\release\external\recastnavigation\recast\source\recast.cpp(63): warning C4996: 'vsnprintf': This function or variable may be unsafe. Consider using vsnprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\stdio.h(340) : see declaration of 'vsnprintf'
+         Generating Code...
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\Lib.exe /OUT:"..\bin\Recast.lib" /NOLOGO obj\Debug\Recast\Recast.obj
+         obj\Debug\Recast\RecastAlloc.obj
+         obj\Debug\Recast\RecastArea.obj
+         obj\Debug\Recast\RecastContour.obj
+         obj\Debug\Recast\RecastFilter.obj
+         obj\Debug\Recast\RecastLayers.obj
+         obj\Debug\Recast\RecastMesh.obj
+         obj\Debug\Recast\RecastMeshDetail.obj
+         obj\Debug\Recast\RecastRasterization.obj
+         obj\Debug\Recast\RecastRegion.obj
+         Recast.vcxproj -> D:\Users\Cybernide\Documents\SteerSuite\Release\build\vs2012\..\bin\Recast.lib
+     1>Done Building Project "D:\Users\Cybernide\Documents\SteerSuite\Release\build\vs2012\Recast.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:02.37

@@ -1,0 +1,462 @@
+﻿Build started 09/11/2015 9:53:30 PM.
+     1>Project "D:\Users\Cybernide\Documents\SteerSuite\Release\build\vs2012\steersimlib.vcxproj" on node 3 (Rebuild target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I..\..\steerlib\include /I..\..\steersimlib\include /I..\..\external /I..\..\util\include /ZI /nologo /W4 /WX- /Od /Oy- /D ENABLE_GUI /D ENABLE_GLFW /D DEBUG /D WIN32 /D _WINDOWS /D GLFW_BUILD_DLL /D _WINDLL /D _MBCS /Gm /EHsc /RTCc /RTC1 /MDd /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"obj\Debug\steersimlib\\" /Fd"..\bin\steersimlib.pdb" /Gd /TP /analyze- /errorReport:prompt -std=c++0x -ggdb ..\..\steersimlib\src\ClockWidget.cpp ..\..\steersimlib\src\CommandLineEngineDriver.cpp ..\..\steersimlib\src\ConsoleWidget.cpp ..\..\steersimlib\src\GLFWEngineDriver.cpp ..\..\steersimlib\src\GlobalEventFilter.cpp ..\..\steersimlib\src\GLWidget.cpp ..\..\steersimlib\src\ModuleManagerWidget.cpp ..\..\steersimlib\src\QtEngineController.cpp ..\..\steersimlib\src\QtEngineDriver.cpp ..\..\steersimlib\src\RecFilePlayerWidget.cpp ..\..\steersimlib\src\SteerSim.cpp ..\..\steersimlib\src\TestCasePlayerWidget.cpp
+     1>cl : Command line warning D9002: ignoring unknown option '-std=c++0x'
+     1>cl : Command line warning D9002: ignoring unknown option '-ggdb'
+         TestCasePlayerWidget.cpp
+         SteerSim.cpp
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\globals.h(29): warning C4005: 'ENABLE_GLFW' : macro redefinition
+                 command-line arguments :  see previous definition of 'ENABLE_GLFW'
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\util\xmlparser.h(36): warning C4100: 'subRoot' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\util\xmlparser.h(36): warning C4100: 'tag' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\util\xmlparser.h(38): warning C4100: 'subRoot' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\util\xmlparser.h(38): warning C4100: 'tag' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\util\xmlparser.h(40): warning C4100: 'indentation' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\util\xmlparser.h(40): warning C4100: 'out' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\util\statemachine.h(41): warning C4100: 'currentState' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\util\statemachine.h(41): warning C4100: 'previousState' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\interfaces\obstacleinterface.h(27): warning C4100: 'frameNumber' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\interfaces\obstacleinterface.h(27): warning C4100: 'dt' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\interfaces\obstacleinterface.h(27): warning C4100: 'timeStamp' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\testcaseio\obstacleinitialconditions.h(93): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\testcaseio\obstacleinitialconditions.h(103): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\testcaseio\testcaseioprivate.h(96): warning C4100: 't' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\testcaseio\testcaseioprivate.h(96): warning C4100: 'r' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\testcaseio\testcaseioprivate.h(97): warning C4100: 'radius' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\testcaseio\testcaseioprivate.h(97): warning C4100: 'p' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\testcaseio\testcaseioprivate.h(98): warning C4100: 'radius' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\testcaseio\testcaseioprivate.h(98): warning C4100: 'p' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\interfaces\agentinterface.h(108): warning C4100: 'item' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\interfaces\agentinterface.h(133): warning C4100: 'timeStamp' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\interfaces\agentinterface.h(133): warning C4100: 'directiontToRightOfAgent' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\interfaces\moduleinterface.h(106): warning C4100: 'agent' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\interfaces\moduleinterface.h(122): warning C4100: 'frameNumber' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\interfaces\moduleinterface.h(122): warning C4100: 'dt' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\interfaces\moduleinterface.h(122): warning C4100: 'timeStamp' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\interfaces\moduleinterface.h(124): warning C4100: 'frameNumber' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\interfaces\moduleinterface.h(124): warning C4100: 'dt' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\interfaces\moduleinterface.h(124): warning C4100: 'timeStamp' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\interfaces\moduleinterface.h(126): warning C4100: 'action' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\interfaces\moduleinterface.h(126): warning C4100: 'key' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\interfaces\moduleinterface.h(128): warning C4100: 'deltaY' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\interfaces\moduleinterface.h(128): warning C4100: 'deltaX' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\interfaces\moduleinterface.h(129): warning C4100: 'action' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\interfaces\moduleinterface.h(129): warning C4100: 'button' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\griddatabase\griddatabase2d.h(208): warning C4100: 'exclude1' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\griddatabase\griddatabase2d.h(210): warning C4100: 'exclude1' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\griddatabase\griddatabaseplanningdomain.h(71): warning C4100: 'idealGoalState' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\interfaces\benchmarktechniqueinterface.h(59): warning C4100: 'out' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\interfaces\benchmarktechniqueinterface.h(59): warning C4100: 'simulationMetrics' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\interfaces\benchmarktechniqueinterface.h(61): warning C4100: 'out' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\interfaces\benchmarktechniqueinterface.h(61): warning C4100: 'simulationMetrics' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\interfaces\benchmarktechniqueinterface.h(61): warning C4100: 'agentIndex' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\benchmarkengineprivate.h(41): warning C4100: 'engineInfo' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\benchmarkengineprivate.h(41): warning C4100: 'initialConditions' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\benchmarkengineprivate.h(44): warning C4100: 'frameNumber' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\benchmarkengineprivate.h(44): warning C4100: 'dt' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\benchmarkengineprivate.h(44): warning C4100: 'timeStamp' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\benchmarkengineprivate.h(63): warning C4100: 'newGoal' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\benchmarkengineprivate.h(77): warning C4100: 'rangeSq' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\benchmarkengineprivate.h(77): warning C4100: 'agent' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechnique01.h(26): warning C4100: 'engineInfo' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechnique01.h(26): warning C4100: 'options' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechnique01.h(27): warning C4100: 'dt' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechnique01.h(27): warning C4100: 'timeStamp' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechnique01.h(27): warning C4100: 'simulationMetrics' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechnique01.h(28): warning C4100: 'frameNumber' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechnique01.h(28): warning C4100: 'timePassedSinceLastFrame' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechnique01.h(28): warning C4100: 'currentTimeStamp' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechnique01.h(28): warning C4100: 'engineInterface' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechnique01.h(46): warning C4100: 'scores' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechnique01.h(46): warning C4100: 'simulationMetrics' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechnique01.h(46): warning C4100: 'agentIndex' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechnique02.h(23): warning C4100: 'engineInfo' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechnique02.h(23): warning C4100: 'options' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechnique02.h(27): warning C4100: 'dt' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechnique02.h(27): warning C4100: 'timeStamp' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechnique02.h(27): warning C4100: 'simulationMetrics' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechnique02.h(31): warning C4100: 'frameNumber' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechnique02.h(31): warning C4100: 'timePassedSinceLastFrame' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechnique02.h(31): warning C4100: 'currentTimeStamp' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechnique02.h(31): warning C4100: 'engineInterface' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\energyefficiencytechnique.h(24): warning C4100: 'engineInfo' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\energyefficiencytechnique.h(24): warning C4100: 'options' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\energyefficiencytechnique.h(26): warning C4100: 'dt' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\energyefficiencytechnique.h(26): warning C4100: 'timeStamp' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\energyefficiencytechnique.h(26): warning C4100: 'simulationMetrics' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\energyefficiencytechnique.h(29): warning C4100: 'frameNumber' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\energyefficiencytechnique.h(29): warning C4100: 'timePassedSinceLastFrame' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\energyefficiencytechnique.h(29): warning C4100: 'currentTimeStamp' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\energyefficiencytechnique.h(29): warning C4100: 'engineInterface' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\energyefficiencytechnique.h(37): warning C4100: 'scores' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\energyefficiencytechnique.h(41): warning C4100: 'scores' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\energyefficiencytechnique.h(41): warning C4100: 'simulationMetrics' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\energyefficiencytechnique.h(41): warning C4100: 'agentIndex' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\accelerationefficiencytechnique.h(25): warning C4100: 'engineInfo' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\accelerationefficiencytechnique.h(25): warning C4100: 'options' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\accelerationefficiencytechnique.h(27): warning C4100: 'dt' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\accelerationefficiencytechnique.h(27): warning C4100: 'timeStamp' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\accelerationefficiencytechnique.h(27): warning C4100: 'simulationMetrics' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\accelerationefficiencytechnique.h(30): warning C4100: 'frameNumber' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\accelerationefficiencytechnique.h(30): warning C4100: 'timePassedSinceLastFrame' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\accelerationefficiencytechnique.h(30): warning C4100: 'currentTimeStamp' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\accelerationefficiencytechnique.h(30): warning C4100: 'engineInterface' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\accelerationefficiencytechnique.h(60): warning C4100: 'scores' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\accelerationefficiencytechnique.h(64): warning C4100: 'scores' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\accelerationefficiencytechnique.h(64): warning C4100: 'simulationMetrics' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\accelerationefficiencytechnique.h(64): warning C4100: 'agentIndex' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechniqueple.h(23): warning C4100: 'engineInfo' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechniqueple.h(23): warning C4100: 'options' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechniqueple.h(27): warning C4100: 'dt' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechniqueple.h(27): warning C4100: 'timeStamp' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechniqueple.h(27): warning C4100: 'simulationMetrics' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechniqueple.h(28): warning C4100: 'frameNumber' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechniqueple.h(28): warning C4100: 'timePassedSinceLastFrame' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechniqueple.h(28): warning C4100: 'currentTimeStamp' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechniqueple.h(28): warning C4100: 'engineInterface' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\util\dmatrix.h(731): warning C4127: conditional expression is constant
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\modules\dummyaimodule.h(20): warning C4100: 'engineInfo' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\modules\dummyaimodule.h(36): warning C4100: 'frameNumber' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\modules\dummyaimodule.h(36): warning C4100: 'dt' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\modules\dummyaimodule.h(36): warning C4100: 'timeStamp' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\modules\dummyaimodule.h(59): warning C4100: 'newGoal' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\modules\dummyaimodule.h(66): warning C4100: 'rangeSq' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\modules\dummyaimodule.h(66): warning C4100: 'agent' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\modules\dummyaimodule.h(86): warning C4100: 'engineInfo' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\modules\dummyaimodule.h(86): warning C4100: 'options' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\modules\metricscollectormodule.h(27): warning C4100: 'options' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\modules\metricscollectormodule.h(55): warning C4100: 'frameNumber' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\modules\recfileplayermodule.h(23): warning C4100: 'engineInfo' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\modules\recfileplayermodule.h(23): warning C4100: 'initialConditions' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\modules\recfileplayermodule.h(24): warning C4100: 'frameNumber' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\modules\recfileplayermodule.h(24): warning C4100: 'dt' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\modules\recfileplayermodule.h(24): warning C4100: 'timeStamp' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\modules\recfileplayermodule.h(36): warning C4100: 'newGoal' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\modules\recfileplayermodule.h(43): warning C4100: 'rangeSq' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\modules\recfileplayermodule.h(43): warning C4100: 'agent' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\modules\steerbenchmodule.h(63): warning C4100: 'frameNumber' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\modules\steerbenchmodule.h(63): warning C4100: 'dt' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\modules\steerbenchmodule.h(63): warning C4100: 'timeStamp' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\modules\steerbugmodule.h(25): warning C4100: 'engineInfo' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\modules\steerbugmodule.h(25): warning C4100: 'options' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steersimlib\src\steersim.cpp(136): warning C4189: 'cerrOriginalStreambuf' : local variable is initialized but not referenced
+         RecFilePlayerWidget.cpp
+         QtEngineDriver.cpp
+         QtEngineController.cpp
+         ModuleManagerWidget.cpp
+         GLWidget.cpp
+         GlobalEventFilter.cpp
+         GLFWEngineDriver.cpp
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\globals.h(29): warning C4005: 'ENABLE_GLFW' : macro redefinition
+                 command-line arguments :  see previous definition of 'ENABLE_GLFW'
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\util\xmlparser.h(36): warning C4100: 'subRoot' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\util\xmlparser.h(36): warning C4100: 'tag' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\util\xmlparser.h(38): warning C4100: 'subRoot' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\util\xmlparser.h(38): warning C4100: 'tag' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\util\xmlparser.h(40): warning C4100: 'indentation' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\util\xmlparser.h(40): warning C4100: 'out' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\util\statemachine.h(41): warning C4100: 'currentState' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\util\statemachine.h(41): warning C4100: 'previousState' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\interfaces\obstacleinterface.h(27): warning C4100: 'frameNumber' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\interfaces\obstacleinterface.h(27): warning C4100: 'dt' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\interfaces\obstacleinterface.h(27): warning C4100: 'timeStamp' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\testcaseio\obstacleinitialconditions.h(93): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\testcaseio\obstacleinitialconditions.h(103): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\testcaseio\testcaseioprivate.h(96): warning C4100: 't' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\testcaseio\testcaseioprivate.h(96): warning C4100: 'r' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\testcaseio\testcaseioprivate.h(97): warning C4100: 'radius' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\testcaseio\testcaseioprivate.h(97): warning C4100: 'p' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\testcaseio\testcaseioprivate.h(98): warning C4100: 'radius' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\testcaseio\testcaseioprivate.h(98): warning C4100: 'p' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\interfaces\agentinterface.h(108): warning C4100: 'item' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\interfaces\agentinterface.h(133): warning C4100: 'timeStamp' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\interfaces\agentinterface.h(133): warning C4100: 'directiontToRightOfAgent' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\interfaces\moduleinterface.h(106): warning C4100: 'agent' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\interfaces\moduleinterface.h(122): warning C4100: 'frameNumber' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\interfaces\moduleinterface.h(122): warning C4100: 'dt' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\interfaces\moduleinterface.h(122): warning C4100: 'timeStamp' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\interfaces\moduleinterface.h(124): warning C4100: 'frameNumber' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\interfaces\moduleinterface.h(124): warning C4100: 'dt' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\interfaces\moduleinterface.h(124): warning C4100: 'timeStamp' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\interfaces\moduleinterface.h(126): warning C4100: 'action' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\interfaces\moduleinterface.h(126): warning C4100: 'key' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\interfaces\moduleinterface.h(128): warning C4100: 'deltaY' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\interfaces\moduleinterface.h(128): warning C4100: 'deltaX' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\interfaces\moduleinterface.h(129): warning C4100: 'action' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\interfaces\moduleinterface.h(129): warning C4100: 'button' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\griddatabase\griddatabase2d.h(208): warning C4100: 'exclude1' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\griddatabase\griddatabase2d.h(210): warning C4100: 'exclude1' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\griddatabase\griddatabaseplanningdomain.h(71): warning C4100: 'idealGoalState' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\interfaces\benchmarktechniqueinterface.h(59): warning C4100: 'out' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\interfaces\benchmarktechniqueinterface.h(59): warning C4100: 'simulationMetrics' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\interfaces\benchmarktechniqueinterface.h(61): warning C4100: 'out' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\interfaces\benchmarktechniqueinterface.h(61): warning C4100: 'simulationMetrics' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\interfaces\benchmarktechniqueinterface.h(61): warning C4100: 'agentIndex' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\benchmarkengineprivate.h(41): warning C4100: 'engineInfo' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\benchmarkengineprivate.h(41): warning C4100: 'initialConditions' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\benchmarkengineprivate.h(44): warning C4100: 'frameNumber' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\benchmarkengineprivate.h(44): warning C4100: 'dt' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\benchmarkengineprivate.h(44): warning C4100: 'timeStamp' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\benchmarkengineprivate.h(63): warning C4100: 'newGoal' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\benchmarkengineprivate.h(77): warning C4100: 'rangeSq' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\benchmarkengineprivate.h(77): warning C4100: 'agent' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechnique01.h(26): warning C4100: 'engineInfo' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechnique01.h(26): warning C4100: 'options' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechnique01.h(27): warning C4100: 'dt' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechnique01.h(27): warning C4100: 'timeStamp' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechnique01.h(27): warning C4100: 'simulationMetrics' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechnique01.h(28): warning C4100: 'frameNumber' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechnique01.h(28): warning C4100: 'timePassedSinceLastFrame' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechnique01.h(28): warning C4100: 'currentTimeStamp' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechnique01.h(28): warning C4100: 'engineInterface' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechnique01.h(46): warning C4100: 'scores' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechnique01.h(46): warning C4100: 'simulationMetrics' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechnique01.h(46): warning C4100: 'agentIndex' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechnique02.h(23): warning C4100: 'engineInfo' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechnique02.h(23): warning C4100: 'options' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechnique02.h(27): warning C4100: 'dt' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechnique02.h(27): warning C4100: 'timeStamp' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechnique02.h(27): warning C4100: 'simulationMetrics' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechnique02.h(31): warning C4100: 'frameNumber' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechnique02.h(31): warning C4100: 'timePassedSinceLastFrame' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechnique02.h(31): warning C4100: 'currentTimeStamp' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechnique02.h(31): warning C4100: 'engineInterface' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\energyefficiencytechnique.h(24): warning C4100: 'engineInfo' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\energyefficiencytechnique.h(24): warning C4100: 'options' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\energyefficiencytechnique.h(26): warning C4100: 'dt' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\energyefficiencytechnique.h(26): warning C4100: 'timeStamp' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\energyefficiencytechnique.h(26): warning C4100: 'simulationMetrics' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\energyefficiencytechnique.h(29): warning C4100: 'frameNumber' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\energyefficiencytechnique.h(29): warning C4100: 'timePassedSinceLastFrame' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\energyefficiencytechnique.h(29): warning C4100: 'currentTimeStamp' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\energyefficiencytechnique.h(29): warning C4100: 'engineInterface' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\energyefficiencytechnique.h(37): warning C4100: 'scores' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\energyefficiencytechnique.h(41): warning C4100: 'scores' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\energyefficiencytechnique.h(41): warning C4100: 'simulationMetrics' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\energyefficiencytechnique.h(41): warning C4100: 'agentIndex' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\accelerationefficiencytechnique.h(25): warning C4100: 'engineInfo' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\accelerationefficiencytechnique.h(25): warning C4100: 'options' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\accelerationefficiencytechnique.h(27): warning C4100: 'dt' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\accelerationefficiencytechnique.h(27): warning C4100: 'timeStamp' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\accelerationefficiencytechnique.h(27): warning C4100: 'simulationMetrics' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\accelerationefficiencytechnique.h(30): warning C4100: 'frameNumber' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\accelerationefficiencytechnique.h(30): warning C4100: 'timePassedSinceLastFrame' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\accelerationefficiencytechnique.h(30): warning C4100: 'currentTimeStamp' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\accelerationefficiencytechnique.h(30): warning C4100: 'engineInterface' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\accelerationefficiencytechnique.h(60): warning C4100: 'scores' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\accelerationefficiencytechnique.h(64): warning C4100: 'scores' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\accelerationefficiencytechnique.h(64): warning C4100: 'simulationMetrics' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\accelerationefficiencytechnique.h(64): warning C4100: 'agentIndex' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechniqueple.h(23): warning C4100: 'engineInfo' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechniqueple.h(23): warning C4100: 'options' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechniqueple.h(27): warning C4100: 'dt' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechniqueple.h(27): warning C4100: 'timeStamp' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechniqueple.h(27): warning C4100: 'simulationMetrics' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechniqueple.h(28): warning C4100: 'frameNumber' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechniqueple.h(28): warning C4100: 'timePassedSinceLastFrame' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechniqueple.h(28): warning C4100: 'currentTimeStamp' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechniqueple.h(28): warning C4100: 'engineInterface' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\util\dmatrix.h(731): warning C4127: conditional expression is constant
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\modules\dummyaimodule.h(20): warning C4100: 'engineInfo' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\modules\dummyaimodule.h(36): warning C4100: 'frameNumber' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\modules\dummyaimodule.h(36): warning C4100: 'dt' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\modules\dummyaimodule.h(36): warning C4100: 'timeStamp' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\modules\dummyaimodule.h(59): warning C4100: 'newGoal' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\modules\dummyaimodule.h(66): warning C4100: 'rangeSq' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\modules\dummyaimodule.h(66): warning C4100: 'agent' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\modules\dummyaimodule.h(86): warning C4100: 'engineInfo' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\modules\dummyaimodule.h(86): warning C4100: 'options' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\modules\metricscollectormodule.h(27): warning C4100: 'options' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\modules\metricscollectormodule.h(55): warning C4100: 'frameNumber' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\modules\recfileplayermodule.h(23): warning C4100: 'engineInfo' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\modules\recfileplayermodule.h(23): warning C4100: 'initialConditions' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\modules\recfileplayermodule.h(24): warning C4100: 'frameNumber' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\modules\recfileplayermodule.h(24): warning C4100: 'dt' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\modules\recfileplayermodule.h(24): warning C4100: 'timeStamp' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\modules\recfileplayermodule.h(36): warning C4100: 'newGoal' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\modules\recfileplayermodule.h(43): warning C4100: 'rangeSq' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\modules\recfileplayermodule.h(43): warning C4100: 'agent' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\modules\steerbenchmodule.h(63): warning C4100: 'frameNumber' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\modules\steerbenchmodule.h(63): warning C4100: 'dt' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\modules\steerbenchmodule.h(63): warning C4100: 'timeStamp' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\modules\steerbugmodule.h(25): warning C4100: 'engineInfo' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\modules\steerbugmodule.h(25): warning C4100: 'options' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steersimlib\src\glfwenginedriver.cpp(145): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(191) : see declaration of 'strncpy'
+     1>d:\users\cybernide\documents\steersuite\release\steersimlib\src\glfwenginedriver.cpp(331): warning C4305: 'initializing' : truncation from 'double' to 'const float'
+     1>d:\users\cybernide\documents\steersuite\release\steersimlib\src\glfwenginedriver.cpp(335): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>d:\users\cybernide\documents\steersuite\release\steersimlib\src\glfwenginedriver.cpp(359): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>d:\users\cybernide\documents\steersuite\release\steersimlib\src\glfwenginedriver.cpp(360): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>d:\users\cybernide\documents\steersuite\release\steersimlib\src\glfwenginedriver.cpp(379): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>d:\users\cybernide\documents\steersuite\release\steersimlib\src\glfwenginedriver.cpp(380): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>d:\users\cybernide\documents\steersuite\release\steersimlib\src\glfwenginedriver.cpp(437): warning C4018: '<' : signed/unsigned mismatch
+         ConsoleWidget.cpp
+         CommandLineEngineDriver.cpp
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\globals.h(29): warning C4005: 'ENABLE_GLFW' : macro redefinition
+                 command-line arguments :  see previous definition of 'ENABLE_GLFW'
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\util\xmlparser.h(36): warning C4100: 'subRoot' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\util\xmlparser.h(36): warning C4100: 'tag' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\util\xmlparser.h(38): warning C4100: 'subRoot' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\util\xmlparser.h(38): warning C4100: 'tag' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\util\xmlparser.h(40): warning C4100: 'indentation' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\util\xmlparser.h(40): warning C4100: 'out' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\util\statemachine.h(41): warning C4100: 'currentState' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\util\statemachine.h(41): warning C4100: 'previousState' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\interfaces\obstacleinterface.h(27): warning C4100: 'frameNumber' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\interfaces\obstacleinterface.h(27): warning C4100: 'dt' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\interfaces\obstacleinterface.h(27): warning C4100: 'timeStamp' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\testcaseio\obstacleinitialconditions.h(93): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\testcaseio\obstacleinitialconditions.h(103): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\testcaseio\testcaseioprivate.h(96): warning C4100: 't' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\testcaseio\testcaseioprivate.h(96): warning C4100: 'r' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\testcaseio\testcaseioprivate.h(97): warning C4100: 'radius' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\testcaseio\testcaseioprivate.h(97): warning C4100: 'p' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\testcaseio\testcaseioprivate.h(98): warning C4100: 'radius' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\testcaseio\testcaseioprivate.h(98): warning C4100: 'p' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\interfaces\agentinterface.h(108): warning C4100: 'item' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\interfaces\agentinterface.h(133): warning C4100: 'timeStamp' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\interfaces\agentinterface.h(133): warning C4100: 'directiontToRightOfAgent' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\interfaces\moduleinterface.h(106): warning C4100: 'agent' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\interfaces\moduleinterface.h(122): warning C4100: 'frameNumber' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\interfaces\moduleinterface.h(122): warning C4100: 'dt' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\interfaces\moduleinterface.h(122): warning C4100: 'timeStamp' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\interfaces\moduleinterface.h(124): warning C4100: 'frameNumber' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\interfaces\moduleinterface.h(124): warning C4100: 'dt' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\interfaces\moduleinterface.h(124): warning C4100: 'timeStamp' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\interfaces\moduleinterface.h(126): warning C4100: 'action' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\interfaces\moduleinterface.h(126): warning C4100: 'key' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\interfaces\moduleinterface.h(128): warning C4100: 'deltaY' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\interfaces\moduleinterface.h(128): warning C4100: 'deltaX' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\interfaces\moduleinterface.h(129): warning C4100: 'action' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\interfaces\moduleinterface.h(129): warning C4100: 'button' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\griddatabase\griddatabase2d.h(208): warning C4100: 'exclude1' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\griddatabase\griddatabase2d.h(210): warning C4100: 'exclude1' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\griddatabase\griddatabaseplanningdomain.h(71): warning C4100: 'idealGoalState' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\interfaces\benchmarktechniqueinterface.h(59): warning C4100: 'out' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\interfaces\benchmarktechniqueinterface.h(59): warning C4100: 'simulationMetrics' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\interfaces\benchmarktechniqueinterface.h(61): warning C4100: 'out' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\interfaces\benchmarktechniqueinterface.h(61): warning C4100: 'simulationMetrics' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\interfaces\benchmarktechniqueinterface.h(61): warning C4100: 'agentIndex' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\benchmarkengineprivate.h(41): warning C4100: 'engineInfo' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\benchmarkengineprivate.h(41): warning C4100: 'initialConditions' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\benchmarkengineprivate.h(44): warning C4100: 'frameNumber' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\benchmarkengineprivate.h(44): warning C4100: 'dt' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\benchmarkengineprivate.h(44): warning C4100: 'timeStamp' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\benchmarkengineprivate.h(63): warning C4100: 'newGoal' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\benchmarkengineprivate.h(77): warning C4100: 'rangeSq' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\benchmarkengineprivate.h(77): warning C4100: 'agent' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechnique01.h(26): warning C4100: 'engineInfo' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechnique01.h(26): warning C4100: 'options' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechnique01.h(27): warning C4100: 'dt' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechnique01.h(27): warning C4100: 'timeStamp' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechnique01.h(27): warning C4100: 'simulationMetrics' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechnique01.h(28): warning C4100: 'frameNumber' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechnique01.h(28): warning C4100: 'timePassedSinceLastFrame' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechnique01.h(28): warning C4100: 'currentTimeStamp' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechnique01.h(28): warning C4100: 'engineInterface' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechnique01.h(46): warning C4100: 'scores' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechnique01.h(46): warning C4100: 'simulationMetrics' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechnique01.h(46): warning C4100: 'agentIndex' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechnique02.h(23): warning C4100: 'engineInfo' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechnique02.h(23): warning C4100: 'options' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechnique02.h(27): warning C4100: 'dt' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechnique02.h(27): warning C4100: 'timeStamp' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechnique02.h(27): warning C4100: 'simulationMetrics' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechnique02.h(31): warning C4100: 'frameNumber' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechnique02.h(31): warning C4100: 'timePassedSinceLastFrame' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechnique02.h(31): warning C4100: 'currentTimeStamp' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechnique02.h(31): warning C4100: 'engineInterface' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\energyefficiencytechnique.h(24): warning C4100: 'engineInfo' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\energyefficiencytechnique.h(24): warning C4100: 'options' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\energyefficiencytechnique.h(26): warning C4100: 'dt' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\energyefficiencytechnique.h(26): warning C4100: 'timeStamp' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\energyefficiencytechnique.h(26): warning C4100: 'simulationMetrics' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\energyefficiencytechnique.h(29): warning C4100: 'frameNumber' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\energyefficiencytechnique.h(29): warning C4100: 'timePassedSinceLastFrame' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\energyefficiencytechnique.h(29): warning C4100: 'currentTimeStamp' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\energyefficiencytechnique.h(29): warning C4100: 'engineInterface' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\energyefficiencytechnique.h(37): warning C4100: 'scores' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\energyefficiencytechnique.h(41): warning C4100: 'scores' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\energyefficiencytechnique.h(41): warning C4100: 'simulationMetrics' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\energyefficiencytechnique.h(41): warning C4100: 'agentIndex' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\accelerationefficiencytechnique.h(25): warning C4100: 'engineInfo' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\accelerationefficiencytechnique.h(25): warning C4100: 'options' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\accelerationefficiencytechnique.h(27): warning C4100: 'dt' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\accelerationefficiencytechnique.h(27): warning C4100: 'timeStamp' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\accelerationefficiencytechnique.h(27): warning C4100: 'simulationMetrics' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\accelerationefficiencytechnique.h(30): warning C4100: 'frameNumber' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\accelerationefficiencytechnique.h(30): warning C4100: 'timePassedSinceLastFrame' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\accelerationefficiencytechnique.h(30): warning C4100: 'currentTimeStamp' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\accelerationefficiencytechnique.h(30): warning C4100: 'engineInterface' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\accelerationefficiencytechnique.h(60): warning C4100: 'scores' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\accelerationefficiencytechnique.h(64): warning C4100: 'scores' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\accelerationefficiencytechnique.h(64): warning C4100: 'simulationMetrics' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\accelerationefficiencytechnique.h(64): warning C4100: 'agentIndex' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechniqueple.h(23): warning C4100: 'engineInfo' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechniqueple.h(23): warning C4100: 'options' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechniqueple.h(27): warning C4100: 'dt' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechniqueple.h(27): warning C4100: 'timeStamp' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechniqueple.h(27): warning C4100: 'simulationMetrics' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechniqueple.h(28): warning C4100: 'frameNumber' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechniqueple.h(28): warning C4100: 'timePassedSinceLastFrame' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechniqueple.h(28): warning C4100: 'currentTimeStamp' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\benchmarking\compositetechniqueple.h(28): warning C4100: 'engineInterface' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\util\dmatrix.h(731): warning C4127: conditional expression is constant
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\modules\dummyaimodule.h(20): warning C4100: 'engineInfo' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\modules\dummyaimodule.h(36): warning C4100: 'frameNumber' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\modules\dummyaimodule.h(36): warning C4100: 'dt' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\modules\dummyaimodule.h(36): warning C4100: 'timeStamp' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\modules\dummyaimodule.h(59): warning C4100: 'newGoal' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\modules\dummyaimodule.h(66): warning C4100: 'rangeSq' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\modules\dummyaimodule.h(66): warning C4100: 'agent' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\modules\dummyaimodule.h(86): warning C4100: 'engineInfo' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\modules\dummyaimodule.h(86): warning C4100: 'options' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\modules\metricscollectormodule.h(27): warning C4100: 'options' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\modules\metricscollectormodule.h(55): warning C4100: 'frameNumber' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\modules\recfileplayermodule.h(23): warning C4100: 'engineInfo' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\modules\recfileplayermodule.h(23): warning C4100: 'initialConditions' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\modules\recfileplayermodule.h(24): warning C4100: 'frameNumber' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\modules\recfileplayermodule.h(24): warning C4100: 'dt' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\modules\recfileplayermodule.h(24): warning C4100: 'timeStamp' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\modules\recfileplayermodule.h(36): warning C4100: 'newGoal' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\modules\recfileplayermodule.h(43): warning C4100: 'rangeSq' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\modules\recfileplayermodule.h(43): warning C4100: 'agent' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\modules\steerbenchmodule.h(63): warning C4100: 'frameNumber' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\modules\steerbenchmodule.h(63): warning C4100: 'dt' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\modules\steerbenchmodule.h(63): warning C4100: 'timeStamp' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\modules\steerbugmodule.h(25): warning C4100: 'engineInfo' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\modules\steerbugmodule.h(25): warning C4100: 'options' : unreferenced formal parameter
+     1>d:\users\cybernide\documents\steersuite\release\steersimlib\src\commandlineenginedriver.cpp(120): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(191) : see declaration of 'strncpy'
+     1>d:\users\cybernide\documents\steersuite\release\steersimlib\src\commandlineenginedriver.cpp(126): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(191) : see declaration of 'strncpy'
+         ClockWidget.cpp
+         Generating Code...
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\interfaces\agentinterface.h(111): warning C4702: unreachable code
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\interfaces\agentinterface.h(111): warning C4702: unreachable code
+     1>d:\users\cybernide\documents\steersuite\release\steerlib\include\interfaces\agentinterface.h(111): warning C4702: unreachable code
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"..\bin\steersimlib.dll" /INCREMENTAL /NOLOGO /LIBPATH:..\lib opengl32.lib glu32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"..\bin\steersimlib.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"..\bin\steersimlib.lib" /MACHINE:X86 /DLL obj\Debug\steersimlib\ClockWidget.obj
+         obj\Debug\steersimlib\CommandLineEngineDriver.obj
+         obj\Debug\steersimlib\ConsoleWidget.obj
+         obj\Debug\steersimlib\GLFWEngineDriver.obj
+         obj\Debug\steersimlib\GlobalEventFilter.obj
+         obj\Debug\steersimlib\GLWidget.obj
+         obj\Debug\steersimlib\ModuleManagerWidget.obj
+         obj\Debug\steersimlib\QtEngineController.obj
+         obj\Debug\steersimlib\QtEngineDriver.obj
+         obj\Debug\steersimlib\RecFilePlayerWidget.obj
+         obj\Debug\steersimlib\SteerSim.obj
+         obj\Debug\steersimlib\TestCasePlayerWidget.obj
+         D:\Users\Cybernide\Documents\SteerSuite\Release\build\bin\steerlib.lib
+         D:\Users\Cybernide\Documents\SteerSuite\Release\build\bin\util.lib
+         D:\Users\Cybernide\Documents\SteerSuite\Release\build\bin\glfw.lib
+         LINK : ..\bin\steersimlib.dll not found or not built by the last incremental link; performing full link
+            Creating library ..\bin\steersimlib.lib and object ..\bin\steersimlib.exp
+         steersimlib.vcxproj -> D:\Users\Cybernide\Documents\SteerSuite\Release\build\vs2012\..\bin\steersimlib.dll
+     1>Done Building Project "D:\Users\Cybernide\Documents\SteerSuite\Release\build\vs2012\steersimlib.vcxproj" (Rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:21.43

@@ -1,0 +1,22 @@
+﻿Build started 22/10/2015 8:49:04 PM.
+     1>Project "D:\Users\Cybernide\Documents\SteerSuite\Release\build\vs2012\tinyxml.vcxproj" on node 4 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I..\..\external\tinyxml /ZI /nologo /W4 /WX- /Od /Oy- /D ENABLE_GUI /D ENABLE_GLFW /D DEBUG /D WIN32 /D _WINDOWS /D _WINDLL /D _MBCS /Gm /EHsc /RTCc /RTC1 /MDd /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"obj\Debug\tinyxml\\" /Fd"..\bin\tinyxml.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\external\tinyxml\ticpp.cpp ..\..\external\tinyxml\tinystr.cpp ..\..\external\tinyxml\tinyxml.cpp ..\..\external\tinyxml\tinyxmlerror.cpp ..\..\external\tinyxml\tinyxmlparser.cpp
+         tinyxmlparser.cpp
+         tinyxmlerror.cpp
+         tinyxml.cpp
+         tinystr.cpp
+         ticpp.cpp
+         Generating Code...
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"..\bin\tinyxml.dll" /INCREMENTAL /NOLOGO /LIBPATH:..\lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"..\bin\tinyxml.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"..\bin\tinyxml.lib" /MACHINE:X86 /DLL obj\Debug\tinyxml\ticpp.obj
+         obj\Debug\tinyxml\tinystr.obj
+         obj\Debug\tinyxml\tinyxml.obj
+         obj\Debug\tinyxml\tinyxmlerror.obj
+         obj\Debug\tinyxml\tinyxmlparser.obj
+         tinyxml.vcxproj -> D:\Users\Cybernide\Documents\SteerSuite\Release\build\vs2012\..\bin\tinyxml.dll
+     1>Done Building Project "D:\Users\Cybernide\Documents\SteerSuite\Release\build\vs2012\tinyxml.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:04.66

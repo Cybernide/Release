@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="external">
+      <UniqueIdentifier>{BAA350EE-ABD6-2A4C-9AF8-031E7D456265}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="external\recastnavigation">
+      <UniqueIdentifier>{99E6CC9B-A59D-AF48-834A-6E8384868DC3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="external\recastnavigation\DebugUtils">
+      <UniqueIdentifier>{48A4C6A6-5F6C-144C-8E92-49E45527CE90}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="external\recastnavigation\DebugUtils\Include">
+      <UniqueIdentifier>{A34960EE-9FEC-C24C-AC2F-AD4B48E06F07}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="external\recastnavigation\DebugUtils\Source">
+      <UniqueIdentifier>{D869FCBF-5B8B-5443-8C57-82CC4E32F51B}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\external\recastnavigation\DebugUtils\Include\DebugDraw.h">
+      <Filter>external\recastnavigation\DebugUtils\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\external\recastnavigation\DebugUtils\Include\DetourDebugDraw.h">
+      <Filter>external\recastnavigation\DebugUtils\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\external\recastnavigation\DebugUtils\Include\RecastDebugDraw.h">
+      <Filter>external\recastnavigation\DebugUtils\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\external\recastnavigation\DebugUtils\Include\RecastDump.h">
+      <Filter>external\recastnavigation\DebugUtils\Include</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\external\recastnavigation\DebugUtils\Source\DebugDraw.cpp">
+      <Filter>external\recastnavigation\DebugUtils\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\external\recastnavigation\DebugUtils\Source\DetourDebugDraw.cpp">
+      <Filter>external\recastnavigation\DebugUtils\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\external\recastnavigation\DebugUtils\Source\RecastDebugDraw.cpp">
+      <Filter>external\recastnavigation\DebugUtils\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\external\recastnavigation\DebugUtils\Source\RecastDump.cpp">
+      <Filter>external\recastnavigation\DebugUtils\Source</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

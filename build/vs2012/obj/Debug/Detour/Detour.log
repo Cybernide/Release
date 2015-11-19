@@ -1,0 +1,27 @@
+﻿Build started 22/10/2015 8:50:32 PM.
+     1>Project "D:\Users\Cybernide\Documents\SteerSuite\Release\build\vs2012\Detour.vcxproj" on node 5 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I..\..\navmeshBuilder\include /I..\..\external\recastnavigation\DebugUtils\Include /I..\..\external\recastnavigation\Detour\Include /I..\..\external\recastnavigation\Recast\Include /I..\..\external\recastnavigation\DetourTileCache\Include /I..\..\util\include /ZI /nologo /W4 /WX- /Od /Oy- /D ENABLE_GUI /D ENABLE_GLFW /D DEBUG /D WIN32 /D _WINDOWS /D _MBCS /Gm /EHsc /RTCc /RTC1 /MDd /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"obj\Debug\Detour\\" /Fd"..\bin\Detour.pdb" /Gd /TP /analyze- /errorReport:prompt -std=c++0x -ggdb -fPIC ..\..\external\recastnavigation\Detour\Source\DetourAlloc.cpp ..\..\external\recastnavigation\Detour\Source\DetourCommon.cpp ..\..\external\recastnavigation\Detour\Source\DetourNavMesh.cpp ..\..\external\recastnavigation\Detour\Source\DetourNavMeshBuilder.cpp ..\..\external\recastnavigation\Detour\Source\DetourNavMeshQuery.cpp ..\..\external\recastnavigation\Detour\Source\DetourNode.cpp
+     1>cl : Command line warning D9002: ignoring unknown option '-std=c++0x'
+     1>cl : Command line warning D9002: ignoring unknown option '-ggdb'
+     1>cl : Command line warning D9002: ignoring unknown option '-fPIC'
+         DetourNode.cpp
+         DetourNavMeshQuery.cpp
+         DetourNavMeshBuilder.cpp
+         DetourNavMesh.cpp
+         DetourCommon.cpp
+         DetourAlloc.cpp
+         Generating Code...
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\Lib.exe /OUT:"..\bin\Detour.lib" /NOLOGO obj\Debug\Detour\DetourAlloc.obj
+         obj\Debug\Detour\DetourCommon.obj
+         obj\Debug\Detour\DetourNavMesh.obj
+         obj\Debug\Detour\DetourNavMeshBuilder.obj
+         obj\Debug\Detour\DetourNavMeshQuery.obj
+         obj\Debug\Detour\DetourNode.obj
+         Detour.vcxproj -> D:\Users\Cybernide\Documents\SteerSuite\Release\build\vs2012\..\bin\Detour.lib
+     1>Done Building Project "D:\Users\Cybernide\Documents\SteerSuite\Release\build\vs2012\Detour.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:02.76

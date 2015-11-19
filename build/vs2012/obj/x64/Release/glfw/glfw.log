@@ -1,0 +1,68 @@
+﻿Build started 22/10/2015 8:44:41 PM.
+     1>Project "D:\Users\Cybernide\Documents\SteerSuite\Release\build\vs2012\glfw.vcxproj" on node 3 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\x86_amd64\CL.exe /c /I..\..\external\glfw\include /I..\..\external\glfw\include\GL /I..\..\external\glfw\lib /I..\..\external\glfw\lib\win32 /Zi /nologo /W4 /WX- /Ox /D ENABLE_GUI /D ENABLE_GLFW /D NDEBUG /D WIN32 /D _WINDOWS /D GLFW_BUILD_DLL /D _GLFW_USE_LINUX_JOYSTICKS /D _GLFW_HAS_XRANDR /D _GLFW_HAS_PTHREAD /D _GLFW_HAS_SCHED_YIELD /D _GLFW_HAS_GLXGETPROCADDRESS /D _WINDLL /D _MBCS /GF /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"obj\x64\Release\glfw\\" /Fd"..\bin\glfw.pdb" /Gd /TC /errorReport:prompt ..\..\external\glfw\lib\enable.c ..\..\external\glfw\lib\fullscreen.c ..\..\external\glfw\lib\glext.c ..\..\external\glfw\lib\image.c ..\..\external\glfw\lib\init.c ..\..\external\glfw\lib\input.c ..\..\external\glfw\lib\joystick.c ..\..\external\glfw\lib\stream.c ..\..\external\glfw\lib\tga.c ..\..\external\glfw\lib\thread.c ..\..\external\glfw\lib\time.c ..\..\external\glfw\lib\window.c ..\..\external\glfw\lib\win32\win32_dllmain.c ..\..\external\glfw\lib\win32\win32_enable.c ..\..\external\glfw\lib\win32\win32_fullscreen.c ..\..\external\glfw\lib\win32\win32_glext.c ..\..\external\glfw\lib\win32\win32_init.c ..\..\external\glfw\lib\win32\win32_joystick.c ..\..\external\glfw\lib\win32\win32_thread.c ..\..\external\glfw\lib\win32\win32_time.c ..\..\external\glfw\lib\win32\win32_window.c
+         enable.c
+         fullscreen.c
+         glext.c
+     1>..\..\external\glfw\lib\glext.c(110): warning C4127: conditional expression is constant
+         image.c
+         init.c
+         input.c
+         joystick.c
+         stream.c
+         tga.c
+         thread.c
+         time.c
+         window.c
+     1>..\..\external\glfw\lib\window.c(580): warning C4055: 'type cast' : from data pointer 'void *' to function pointer 'PFNGLGETSTRINGIPROC'
+         win32_dllmain.c
+     1>..\..\external\glfw\lib\win32\win32_dllmain.c(40): warning C4100: 'reserved' : unreferenced formal parameter
+     1>..\..\external\glfw\lib\win32\win32_dllmain.c(40): warning C4100: 'reason' : unreferenced formal parameter
+     1>..\..\external\glfw\lib\win32\win32_dllmain.c(40): warning C4100: 'instance' : unreferenced formal parameter
+         win32_enable.c
+         win32_fullscreen.c
+         win32_glext.c
+     1>..\..\external\glfw\lib\win32\win32_glext.c(80): warning C4054: 'type cast' : from function pointer 'PROC' to data pointer 'void *'
+         win32_init.c
+         win32_joystick.c
+         win32_thread.c
+         win32_time.c
+         Generating Code...
+     1>d:\users\cybernide\documents\steersuite\release\external\glfw\lib\win32\win32_fullscreen.c(281): warning C4701: potentially uninitialized local variable 'm2' used
+     1>d:\users\cybernide\documents\steersuite\release\external\glfw\lib\image.c(621): warning C4701: potentially uninitialized local variable 'GenMipMap' used
+         Compiling...
+         win32_window.c
+     1>..\..\external\glfw\lib\win32\win32_window.c(1419): warning C4306: 'type cast' : conversion from 'int' to 'HWND' of greater size
+     1>..\..\external\glfw\lib\win32\win32_window.c(1306): warning C4100: 'height' : unreferenced formal parameter
+     1>..\..\external\glfw\lib\win32\win32_window.c(1306): warning C4100: 'width' : unreferenced formal parameter
+         Generating Code...
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"..\bin\glfw.dll" /INCREMENTAL:NO /NOLOGO /LIBPATH:..\lib opengl32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"..\bin\glfw.pdb" /SUBSYSTEM:WINDOWS /OPT:REF /OPT:ICF /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"..\bin\glfw.lib" /MACHINE:X64 /DLL obj\x64\Release\glfw\enable.obj
+         obj\x64\Release\glfw\fullscreen.obj
+         obj\x64\Release\glfw\glext.obj
+         obj\x64\Release\glfw\image.obj
+         obj\x64\Release\glfw\init.obj
+         obj\x64\Release\glfw\input.obj
+         obj\x64\Release\glfw\joystick.obj
+         obj\x64\Release\glfw\stream.obj
+         obj\x64\Release\glfw\tga.obj
+         obj\x64\Release\glfw\thread.obj
+         obj\x64\Release\glfw\time.obj
+         obj\x64\Release\glfw\window.obj
+         obj\x64\Release\glfw\win32_dllmain.obj
+         obj\x64\Release\glfw\win32_enable.obj
+         obj\x64\Release\glfw\win32_fullscreen.obj
+         obj\x64\Release\glfw\win32_glext.obj
+         obj\x64\Release\glfw\win32_init.obj
+         obj\x64\Release\glfw\win32_joystick.obj
+         obj\x64\Release\glfw\win32_thread.obj
+         obj\x64\Release\glfw\win32_time.obj
+         obj\x64\Release\glfw\win32_window.obj
+            Creating library ..\bin\glfw.lib and object ..\bin\glfw.exp
+         glfw.vcxproj -> D:\Users\Cybernide\Documents\SteerSuite\Release\build\vs2012\..\bin\glfw.dll
+     1>Done Building Project "D:\Users\Cybernide\Documents\SteerSuite\Release\build\vs2012\glfw.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:05.46

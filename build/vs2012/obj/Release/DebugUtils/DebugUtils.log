@@ -1,0 +1,25 @@
+﻿Build started 09/11/2015 9:37:34 PM.
+     1>Project "D:\Users\Cybernide\Documents\SteerSuite\Release\build\vs2012\DebugUtils.vcxproj" on node 3 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I..\..\navmeshBuilder\include /I..\..\external\recastnavigation\DebugUtils\Include /I..\..\external\recastnavigation\Detour\Include /I..\..\external\recastnavigation\Recast\Include /I..\..\external\recastnavigation\DetourTileCache\Include /I..\..\util\include /Zi /nologo /W4 /WX- /Ox /Oy- /D ENABLE_GUI /D ENABLE_GLFW /D NDEBUG /D WIN32 /D _WINDOWS /D _MBCS /GF /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"obj\Release\DebugUtils\\" /Fd"..\bin\DebugUtils.pdb" /Gd /TP /analyze- /errorReport:prompt -std=c++0x -ggdb -fPIC ..\..\external\recastnavigation\DebugUtils\Source\DebugDraw.cpp ..\..\external\recastnavigation\DebugUtils\Source\DetourDebugDraw.cpp ..\..\external\recastnavigation\DebugUtils\Source\RecastDebugDraw.cpp ..\..\external\recastnavigation\DebugUtils\Source\RecastDump.cpp
+     1>cl : Command line warning D9002: ignoring unknown option '-std=c++0x'
+     1>cl : Command line warning D9002: ignoring unknown option '-ggdb'
+     1>cl : Command line warning D9002: ignoring unknown option '-fPIC'
+         DebugDraw.cpp
+         DetourDebugDraw.cpp
+         RecastDebugDraw.cpp
+         RecastDump.cpp
+     1>..\..\external\recastnavigation\DebugUtils\Source\RecastDump.cpp(39): warning C4996: 'vsnprintf': This function or variable may be unsafe. Consider using vsnprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\stdio.h(340) : see declaration of 'vsnprintf'
+         Generating Code...
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\Lib.exe /OUT:"..\bin\DebugUtils.lib" /NOLOGO obj\Release\DebugUtils\DebugDraw.obj
+         obj\Release\DebugUtils\DetourDebugDraw.obj
+         obj\Release\DebugUtils\RecastDebugDraw.obj
+         obj\Release\DebugUtils\RecastDump.obj
+         DebugUtils.vcxproj -> D:\Users\Cybernide\Documents\SteerSuite\Release\build\vs2012\..\bin\DebugUtils.lib
+     1>Done Building Project "D:\Users\Cybernide\Documents\SteerSuite\Release\build\vs2012\DebugUtils.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.87

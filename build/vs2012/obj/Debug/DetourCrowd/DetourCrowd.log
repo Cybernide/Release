@@ -1,0 +1,27 @@
+﻿Build started 22/10/2015 8:50:36 PM.
+     1>Project "D:\Users\Cybernide\Documents\SteerSuite\Release\build\vs2012\DetourCrowd.vcxproj" on node 4 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I..\..\navmeshBuilder\include /I..\..\external\recastnavigation\DebugUtils\Include /I..\..\external\recastnavigation\Detour\Include /I..\..\external\recastnavigation\Recast\Include /I..\..\external\recastnavigation\DetourTileCache\Include /I..\..\external\recastnavigation\DetourCrowd\Include /I..\..\util\include /ZI /nologo /W4 /WX- /Od /Oy- /D ENABLE_GUI /D ENABLE_GLFW /D DEBUG /D WIN32 /D _WINDOWS /D _MBCS /Gm /EHsc /RTCc /RTC1 /MDd /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"obj\Debug\DetourCrowd\\" /Fd"..\bin\DetourCrowd.pdb" /Gd /TP /analyze- /errorReport:prompt -std=c++0x -ggdb -fPIC ..\..\external\recastnavigation\DetourCrowd\Source\DetourCrowd.cpp ..\..\external\recastnavigation\DetourCrowd\Source\DetourLocalBoundary.cpp ..\..\external\recastnavigation\DetourCrowd\Source\DetourObstacleAvoidance.cpp ..\..\external\recastnavigation\DetourCrowd\Source\DetourPathCorridor.cpp ..\..\external\recastnavigation\DetourCrowd\Source\DetourPathQueue.cpp ..\..\external\recastnavigation\DetourCrowd\Source\DetourProximityGrid.cpp
+     1>cl : Command line warning D9002: ignoring unknown option '-std=c++0x'
+     1>cl : Command line warning D9002: ignoring unknown option '-ggdb'
+     1>cl : Command line warning D9002: ignoring unknown option '-fPIC'
+         DetourProximityGrid.cpp
+         DetourPathQueue.cpp
+         DetourPathCorridor.cpp
+         DetourObstacleAvoidance.cpp
+         DetourLocalBoundary.cpp
+         DetourCrowd.cpp
+         Generating Code...
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\Lib.exe /OUT:"..\bin\DetourCrowd.lib" /NOLOGO obj\Debug\DetourCrowd\DetourCrowd.obj
+         obj\Debug\DetourCrowd\DetourLocalBoundary.obj
+         obj\Debug\DetourCrowd\DetourObstacleAvoidance.obj
+         obj\Debug\DetourCrowd\DetourPathCorridor.obj
+         obj\Debug\DetourCrowd\DetourPathQueue.obj
+         obj\Debug\DetourCrowd\DetourProximityGrid.obj
+         DetourCrowd.vcxproj -> D:\Users\Cybernide\Documents\SteerSuite\Release\build\vs2012\..\bin\DetourCrowd.lib
+     1>Done Building Project "D:\Users\Cybernide\Documents\SteerSuite\Release\build\vs2012\DetourCrowd.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:06.86

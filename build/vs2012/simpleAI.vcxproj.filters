@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="simpleAI">
+      <UniqueIdentifier>{9F630895-AAD0-934E-9BD7-7ABFAAD17F99}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="simpleAI\include">
+      <UniqueIdentifier>{2BEDEA93-46B3-1245-916E-9F6794F15D41}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="simpleAI\src">
+      <UniqueIdentifier>{2AA5466F-6A57-794A-B62D-3BCB9AB40FB5}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\simpleAI\include\SimpleAgent.h">
+      <Filter>simpleAI\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\simpleAI\include\SimpleAIModule.h">
+      <Filter>simpleAI\include</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\simpleAI\src\SimpleAgent.cpp">
+      <Filter>simpleAI\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\simpleAI\src\SimpleAIModule.cpp">
+      <Filter>simpleAI\src</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

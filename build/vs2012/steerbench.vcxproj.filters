@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="steerbench">
+      <UniqueIdentifier>{AE6F0C53-A04B-DE4E-B3C7-2446BD658874}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="steerbench\src">
+      <UniqueIdentifier>{F7842F81-43DB-3E4F-A77A-20568D9A9065}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\steerbench\src\Main.cpp">
+      <Filter>steerbench\src</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
