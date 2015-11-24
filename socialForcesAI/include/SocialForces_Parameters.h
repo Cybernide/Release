@@ -15,8 +15,8 @@
 
 // #include "testcaseio/Behaviour.h"
 
-#define MAX_SPEED 6
-#define PREFERED_SPEED 1.33 // TODO not added to parameters yet.
+#define MAX_SPEED 2.6f
+#define PREFERRED_SPEED 1.33 // TODO not added to parameters yet.
 
 
 //ACCELERATION (0.4 + static_cast <float> (rand()) /( static_cast <float> (RAND_MAX/(0.1-0.8)))); // = v/A
