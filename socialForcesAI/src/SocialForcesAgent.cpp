@@ -190,15 +190,12 @@ void SocialForcesAgent::reset(const SteerLib::AgentInitialConditions & initialCo
 			*
 			MASS;
 
-	// _velocity = _prefVelocity;
 #ifdef _DEBUG_ENTROPY
 	std::cout << "goal direction is: " << goalDirection << " prefvelocity is: " << prefVelocity_ <<
 			" and current velocity is: " << velocity_ << std::endl;
 #endif
 
 
-	// std::cout << "Parameter spec: " << _SocialForcesParams << std::endl;
-	// _gEngine->addAgent(this, rvoModule);
 	assert(_forward.length()!=0.0f);
 	assert(_goalQueue.size() != 0);
 	assert(_radius != 0.0f);
@@ -210,8 +207,13 @@ void SocialForcesAgent::calcNextStep(float dt)
 
 }
 
-float timeToIntersect(const Util::Vector a_pos, const Util::Vector b_pos, const Util::Vector v_diff, float ab_rad) 
+float timeToIntersect(const Util::Point a_pos, const Util::Point b_pos, const Util::Vector v_diff, float ab_rad) 
 	{
+		// return time of intersection between agents A and B, where A is the selected agent
+		// and B is the neighbour that A is considering.
+		// Positions of A, B: a_pos, b_pos
+		// Difference in velocity: v_diff
+		// combined radius of A and B: ab_rad
 		float time;
 		Util::Vector pos_diff = b_pos - a_pos;
 		float a = v_diff*v_diff;
@@ -235,9 +237,24 @@ Util::Vector SocialForcesAgent::calcAgentRepulsionForce(float dt)
 	// The return value
 	Util::Vector agent_repulsion_force = Util::Vector(0,0,0);
 
+	Util::Vector agent_desiredvelocity;
+	Util::Point agent_nextlocation;
+
 	// Calculate the desired velocity and estimated position of agent A
-	Util::Vector agent_desiredvelocity = _velocity + calcWallRepulsionForce(dt) + (ACCELERATION * (PREFERRED_SPEED * (normalize(_currentLocalTarget - position())) - velocity()));
-	Util::Point agent_nextlocation = position() + agent_desiredvelocity;
+	SteerLib::AgentGoalInfo goalInfo = _goalQueue.front();
+	if ( ! _midTermPath.empty() && (!this->hasLineOfSightTo(goalInfo.targetLocation)) )
+	{
+		// get the 
+		agent_desiredvelocity = _velocity + calcWallRepulsionForce(dt) + 
+			(ACCELERATION * (PREFERRED_SPEED * (normalize(_currentLocalTarget - position())) - velocity()));
+	}
+	else
+	{
+		agent_desiredvelocity = _velocity + calcWallRepulsionForce(dt) + 
+			(ACCELERATION * (PREFERRED_SPEED * (normalize(goalInfo.targetLocation - position())) - velocity()));
+	}
+
+	agent_nextlocation = position() + agent_desiredvelocity;
 
 	// Obtain other agents within agent A's query radius
 	std::set<SteerLib::SpatialDatabaseItemPtr> _neighbors;
@@ -256,31 +273,33 @@ Util::Vector SocialForcesAgent::calcAgentRepulsionForce(float dt)
 		{
 			tmp_agent = dynamic_cast<SteerLib::AgentInterface *>(*neighbour);
 			Util::Point tmp_agent_nextlocation = tmp_agent->position() + tmp_agent->velocity();
-			if ( ( id() != tmp_agent->id() ) &&
-				(this->computePenetration(tmp_agent_nextlocation, tmp_agent->radius()) > PERSONAL_SPACE_THRESHOLD)
-			)
+			Util::Vector away_direction = Util::Vector(0,0,0);
+			float mag = 0.0;
+			//if ( ( id() != tmp_agent->id() ) &&
+				//(this->computePenetration(tmp_agent_nextlocation, tmp_agent->radius()) > PERSONAL_SPACE_THRESHOLD)
+			if ( id() != tmp_agent->id() )
 			{
+				float collisiontime = timeToIntersect(this->position(), tmp_agent->position(), agent_desiredvelocity- tmp_agent->velocity() , PERSONAL_SPACE_THRESHOLD + tmp_agent->radius());
+				Util::Point tmp_agentCollPos = tmp_agent->position() + collisiontime * tmp_agent->velocity();
+				Util::Point agent_CollPos = this->position() + collisiontime * agent_desiredvelocity;
 				//TODO: Avoidance maneuvers
-				Util::Vector away_direction = (agent_nextlocation - tmp_agent_nextlocation)/(agent_nextlocation - tmp_agent_nextlocation).length();
-				float away_magnitude = ((agent_nextlocation - this->position()).length()) + ((agent_nextlocation - tmp_agent_nextlocation).length() - this->radius() - tmp_agent->radius());
+				away_direction = (agent_CollPos - tmp_agentCollPos)/(agent_CollPos - tmp_agentCollPos).length();
+				float distToCollision = ((agent_CollPos - this->position()).length()) + ((agent_CollPos - tmp_agentCollPos).length() - this->radius() - tmp_agent->radius());
+				
+				if ( distToCollision < D_MIN ) {
+					mag = STRENGTH * D_MIN / distToCollision;
+				} else if ( distToCollision < D_MID ) {
+					mag = STRENGTH;
+				} else if ( distToCollision < D_MAX ) {
+					mag = STRENGTH * (D_MAX - distToCollision)/(D_MAX - D_MID);
+				} else {
+					continue;	// magnitude is zero
+				}
+				//mag *= pow((collision?1.f:_wFactor), count++);
+				//_F += mag * forceDir;
 
-			//	agent_repulsion_force = agent_repulsion_force +
-			//	( tmp_agent->computePenetration(this->position(), this->radius()) * _SocialForcesParams.sf_agent_body_force * dt) *
-			//	normalize(position() - tmp_agent->position());
-			//	Util::Vector tangent = cross(cross(tmp_agent->position() - position(), velocity()),
-			//		tmp_agent->position() - position());
-			//tangent = tangent /  tangent.length();
-			//float  tanget_v_diff = dot(tmp_agent->velocity() - velocity(),  tangent);
-			//// std::cout << "Velocity diff is " << tanget_v_diff << " tangent is " << tangent <<
-			//	//	" velocity is " << velocity() << std::endl;
-			//agent_repulsion_force = agent_repulsion_force +
-			//(_SocialForcesParams.sf_sliding_friction_force * dt *
-			//	(
-			//		tmp_agent->computePenetration(this->position(), this->radius())
-			//	) * tangent * tanget_v_diff
-
-			//);
 			}
+			agent_repulsion_force += mag * away_direction;
 		}
 		else
 		{
@@ -421,14 +440,10 @@ Util::Vector SocialForcesAgent::calcProximityForce(float dt)
 			{
 				Util::Vector wall_normal = calcWallNormal( tmp_ob );
 				std::pair<Util::Point,Util::Point> line = calcWallPointsFromNormal(tmp_ob, wall_normal);
-				// Util::Point midpoint = Util::Point((line.first.x+line.second.x)/2, ((line.first.y+line.second.y)/2)+1,
-					// 	(line.first.z+line.second.z)/2);
 				std::pair<float, Util::Point> min_stuff = minimum_distance(line.first, line.second, position());
 				// wall distance
 
 				Util::Vector away_obs_tmp = normalize(position() - min_stuff.second);
-				// std::cout << "away_obs_tmp vec" << away_obs_tmp << std::endl;
-				// away_obs = away_obs + ( away_obs_tmp * ( radius() / ((position() - min_stuff.second).length() * B ) ) );
 				away_obs = away_obs +
 						(
 							away_obs_tmp
@@ -461,14 +476,10 @@ Util::Vector SocialForcesAgent::calcProximityForce(float dt)
 	return away + away_obs;
 }
 
-Util::Vector SocialForcesAgent::calcRepulsionForce(float dt)
-{
-#ifdef _DEBUG_
-	std::cout << "wall repulsion; " << calcWallRepulsionForce(dt) << " agent repulsion " <<
-			(_SocialForcesParams.sf_agent_repulsion_importance * calcAgentRepulsionForce(dt)) << std::endl;
-#endif
-	return calcWallRepulsionForce(dt) + (_SocialForcesParams.sf_agent_repulsion_importance * calcAgentRepulsionForce(dt));
-}
+//Util::Vector SocialForcesAgent::calcRepulsionForce(float dt)
+//{
+
+//}
 
 
 // I modified this
@@ -511,8 +522,11 @@ Util::Vector SocialForcesAgent::calcWallRepulsionForce(float dt)
 		}
 
 
-	return wall_repulsion_force;
+
+	}
+		return wall_repulsion_force;
 }
+
 
 std::pair<Util::Point, Util::Point> SocialForcesAgent::calcWallPointsFromNormal(SteerLib::ObstacleInterface* obs, Util::Vector normal)
 {
@@ -667,6 +681,8 @@ void SocialForcesAgent::updateAI(float timeStamp, float dt, unsigned int frameNu
 
 	SteerLib::AgentGoalInfo goalInfo = _goalQueue.front();
 	Util::Vector goalDirection;
+	Util::Vector prefVelocity;
+
 	if ( ! _midTermPath.empty() && (!this->hasLineOfSightTo(goalInfo.targetLocation)) )
 	{
 		if (reachedCurrentWaypoint())
@@ -677,22 +693,32 @@ void SocialForcesAgent::updateAI(float timeStamp, float dt, unsigned int frameNu
 		this->updateLocalTarget();
 
 		goalDirection = normalize(_currentLocalTarget - position());
-
+		//prefVelocity = prefVelocity * (PREFERRED_SPEED/(_currentLocalTarget - position()).length);
 	}
 	else
 	{
 		goalDirection = normalize(goalInfo.targetLocation - position());
+		//prefVelocity = prefVelocity * (PREFERRED_SPEED/(goalInfo.targetLocation - position()).length);
 	}
 	// Cyan: calculate goal force
-	Util::Vector prefForce = ACCELERATION * (PREFERRED_SPEED * goalDirection - velocity());
 
-	Util::Vector repulsionForce = calcRepulsionForce(dt);
-	if ( repulsionForce.x != repulsionForce.x)
+	Util::Vector goalForce = ACCELERATION * (PREFERRED_SPEED * goalDirection - velocity());
+
+#ifdef _DEBUG_
+	std::cout << "wall repulsion; " << calcWallRepulsionForce(dt) << " agent repulsion " <<
+			(_SocialForcesParams.sf_agent_repulsion_importance * calcAgentRepulsionForce(dt)) << std::endl;
+#endif
+	Util::Vector repulsionForce = calcWallRepulsionForce(dt) + (_SocialForcesParams.sf_agent_repulsion_importance * calcAgentRepulsionForce(dt));
+
+
+	if (repulsionForce.x != repulsionForce.x)
 	{
 		std::cout << "Found some nan" << std::endl;
 		repulsionForce = velocity();
 	}
+
 	Util::Vector proximityForce = calcProximityForce(dt);
+
 // #define _DEBUG_ 1
 #ifdef _DEBUG_
 	std::cout << "agent" << id() << " repulsion force " << repulsionForce << std::endl;
@@ -705,9 +731,7 @@ void SocialForcesAgent::updateAI(float timeStamp, float dt, unsigned int frameNu
 		alpha=0;
 	}
 
-	_velocity = (prefForce) + repulsionForce + proximityForce;
-	// _velocity = (prefForce);
-	// _velocity = velocity() + repulsionForce + proximityForce;
+	_velocity = (goalForce) + repulsionForce + proximityForce;
 
 	_velocity = clamp(velocity(), _SocialForcesParams.sf_max_speed);
 	_velocity.y=0.0f;
@@ -839,23 +863,6 @@ void SocialForcesAgent::draw()
 	DrawLib::drawLine(position(), this->_currentLocalTarget, gGray10);
 	DrawLib::drawStar(this->_currentLocalTarget+Util::Vector(0,0.001,0), Util::Vector(1,0,0), 0.24f, gGray10);
 
-	/*
-	// draw normals and closest points on walls
-	std::set<SteerLib::ObstacleInterface * > tmp_obs = gEngine->getObstacles();
-
-	for (std::set<SteerLib::ObstacleInterface * >::iterator tmp_o = tmp_obs.begin();  tmp_o != tmp_obs.end();  tmp_o++)
-	{
-		Util::Vector normal = calcWallNormal( *tmp_o );
-		std::pair<Util::Point,Util::Point> line = calcWallPointsFromNormal(* tmp_o, normal);
-		Util::Point midpoint = Util::Point((line.first.x+line.second.x)/2, ((line.first.y+line.second.y)/2)+1,
-				(line.first.z+line.second.z)/2);
-		DrawLib::drawLine(midpoint, midpoint+normal, gGreen);
-
-		// Draw the closes point as well
-		std::pair<float, Util::Point> min_stuff = minimum_distance(line.first, line.second, position());
-		DrawLib::drawStar(min_stuff.second, Util::Vector(1,0,0), 0.34f, gGreen);
-	}
-	*/
 
 #endif
 
