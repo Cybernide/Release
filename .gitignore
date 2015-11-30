@@ -27,5 +27,5 @@
 *.out
 *.app
 
-build/vs2012/*
-build/bin/*
+build/vs2012/**
+build/bin/**
