@@ -35,7 +35,6 @@ public:
 	SocialForcesAgent();
 	~SocialForcesAgent();
 	void reset(const SteerLib::AgentInitialConditions & initialConditions, SteerLib::EngineInterface * engineInfo);
-	void collisionPrediction(float);
 	void updateAI(float timeStamp, float dt, unsigned int frameNumber);
 	void disable();
 	void draw();
@@ -102,7 +101,7 @@ private:
 	Util::Vector calcRepulsionForce(float dt);
 	Util::Vector calcProximityForce(float dt);
 
-	Util::Vector calcAgentRepulsionForce(float dt);
+	Util::Vector calcAgentRepulsionForce(float dt, Util::Vector wall_repulsion);
 	Util::Vector calcWallRepulsionForce(float dt);
 
 	Util::Vector calcWallNormal(SteerLib::ObstacleInterface* obs);

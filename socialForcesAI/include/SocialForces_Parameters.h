@@ -22,8 +22,10 @@
 //ACCELERATION (0.4 + static_cast <float> (rand()) /( static_cast <float> (RAND_MAX/(0.1-0.8)))); // = v/A
 //PERSONAL_SPACE_THRESHOLD (0.3 + static_cast <float> (rand()) /( static_cast <float> (RAND_MAX/(0.3-0.8)))); // not defined in HiDAC papaer
 #define ACCELERATION 0.7f
-#define PERSONAL_SPACE_THRESHOLD 0.8f
+#define PERSONAL_SPACE_THRESHOLD 0.5f
 #define AGENT_REPULSION_IMPORTANCE 0.5f // in HiDAC
+#define AGENT_TRACKING 3
+#define PREFERRED_WALL_DISTANCE 0.9f
 #define QUERY_RADIUS 9.0f // not defined in paper
 #define BODY_FORCE 1500.0f // K (big K) 120000 / 80
 #define AGENT_BODY_FORCE 1500.0f
@@ -36,7 +38,7 @@
 #define D_MIN 0.2f
 #define D_MID 0.4f
 #define D_MAX 0.7f
-#define STRENGTH 1.1f
+#define AGGRESSION 1.1f
 
 #define MASS 1
 // #define WAYPOINT_THRESHOLD_MULTIPLIER 2.5
