@@ -99,7 +99,6 @@ private:
 
 	void calcNextStep(float dt);
 	Util::Vector calcRepulsionForce(float dt);
-	Util::Vector calcProximityForce(float dt);
 
 	Util::Vector calcAgentRepulsionForce(float dt, Util::Vector wall_repulsion);
 	Util::Vector calcWallRepulsionForce(float dt);

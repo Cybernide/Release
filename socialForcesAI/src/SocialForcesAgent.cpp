@@ -1,7 +1,12 @@
 //
 // Copyright (c) 2009-2015 Glen Berseth, Mubbasir Kapadia, Shawn Singh, Petros Faloutsos, Glenn Reinman
 // See license.txt for complete license.
-//
+/*
+	sfPAM is a module written for SteerSuite by Cyan Kuo. The work is based off of the sfAI module and 
+	implements the steering model described in I. Karamouzas et al., "A Predictive Collision Avoidance 
+	Model for Pedestrian Simulation," in Motion in Games, A. Egges, R. Geraerts and M. Overmars, Eds.,
+	vol. 5884, Springer, 2009, pp. 41-52.
+*/
 
 
 
@@ -210,7 +215,7 @@ void SocialForcesAgent::calcNextStep(float dt)
 
 float timeToIntersect(const Util::Point a_pos, const Util::Point b_pos, const Util::Vector v_diff, float ab_rad) 
 	{
-		// intersection time as implemented in predictive model by Karamouzas et al
+		// intersection time is based off of the original C++ implementation by I. Karamouzas
 		float time;
 		Util::Vector pos_diff = b_pos - a_pos;
 		float a = v_diff*v_diff;
@@ -334,6 +339,7 @@ std::pair<float, Util::Point> minimum_distance(Util::Point l1, Util::Point l2, U
   float lSq = (l1 - l2).lengthSquared();  // i.e. |l2-l1|^2 -  avoid a sqrt
   if (lSq == 0.0)
 	  return std::make_pair((p - l2).length(),l1 );   // l1 == l2 case
+
   // Consider the line extending the segment, parameterized as l1 + t (l2 - l1).
   // We find projection of point p onto the line.
   // It falls where t = [(p-l1) . (l2-l1)] / |l2-l1|^2
@@ -348,131 +354,6 @@ std::pair<float, Util::Point> minimum_distance(Util::Point l1, Util::Point l2, U
   }
   const Util::Point projection = l1 + t * (l2 - l1);  // Projection falls on the segment
   return std::make_pair((p - projection).length(), projection) ;
-}
-
-
-Util::Vector SocialForcesAgent::calcProximityForce(float dt)
-{
-
-	Util::Vector agent_repulsion_force = Util::Vector(0,0,0);
-
-	std::set<SteerLib::SpatialDatabaseItemPtr> _neighbors;
-		getSimulationEngine()->getSpatialDatabase()->getItemsInRange(_neighbors,
-				_position.x-(this->_radius + _SocialForcesParams.sf_query_radius),
-				_position.x+(this->_radius + _SocialForcesParams.sf_query_radius),
-				_position.z-(this->_radius + _SocialForcesParams.sf_query_radius),
-				_position.z+(this->_radius + _SocialForcesParams.sf_query_radius),
-				dynamic_cast<SteerLib::SpatialDatabaseItemPtr>(this));
-
-	SteerLib::AgentInterface * tmp_agent;
-	SteerLib::ObstacleInterface * tmp_ob;
-	Util::Vector away = Util::Vector(0,0,0);
-	Util::Vector away_obs = Util::Vector(0,0,0);
-
-	for (std::set<SteerLib::SpatialDatabaseItemPtr>::iterator neighbour = _neighbors.begin();  neighbour != _neighbors.end();  neighbour++)
-	{
-		if ( (*neighbour)->isAgent() )
-		{
-			tmp_agent = dynamic_cast<SteerLib::AgentInterface *>(*neighbour);
-
-			// direction away from other agent
-			Util::Vector away_tmp = normalize(position() - tmp_agent->position());
-			// Scale force
-			away = away +
-					(
-						away_tmp
-						*
-						(
-							_SocialForcesParams.sf_agent_a
-							*
-							exp(
-								(
-									(
-										(
-											this->radius()
-											+
-											tmp_agent->radius()
-										)
-										-
-										(
-											this->position()
-											-
-											tmp_agent->position()
-										).length()
-									)
-									/
-									_SocialForcesParams.sf_agent_b
-								)
-							)
-
-
-						)
-						*
-						dt
-					);
-
-		}
-		else
-		{
-			// It is an obstacle
-			tmp_ob = dynamic_cast<SteerLib::ObstacleInterface *>(*neighbour);
-			CircleObstacle * obs_cir = dynamic_cast<SteerLib::CircleObstacle *>(tmp_ob);
-			if ( obs_cir != NULL && USE_CIRCLES)
-			{
-				// std::cout << "Found circle obstacle" << std::endl;
-				Util::Vector away_tmp = normalize(position() - obs_cir->position());
-				away = away +
-						(
-							away_tmp
-							*
-							(
-									_SocialForcesParams.sf_wall_a
-								*
-								exp(
-									(
-										(
-											(
-												this->radius()
-												+
-												obs_cir->radius()
-											)
-											-
-											(
-												this->position()
-												-
-												obs_cir->position()
-											).length()
-										)
-										/
-										_SocialForcesParams.sf_wall_b
-									)
-								)
-
-
-							)
-							*
-							dt
-						);
-			}
-			else
-			{
-				Util::Vector wall_normal = calcWallNormal( tmp_ob );
-				std::pair<Util::Point,Util::Point> line = calcWallPointsFromNormal(tmp_ob, wall_normal);
-				// Util::Point midpoint = Util::Point((line.first.x+line.second.x)/2, ((line.first.y+line.second.y)/2)+1,
-					// 	(line.first.z+line.second.z)/2);
-				std::pair<float, Util::Point> min_stuff = minimum_distance(line.first, line.second, position());
-				// wall distance
-
-				Util::Vector away_obs_tmp = normalize(position() - min_stuff.second);
-				// std::cout << "away_obs_tmp vec" << away_obs_tmp << std::endl;
-				// away_obs = away_obs + ( away_obs_tmp * ( radius() / ((position() - min_stuff.second).length() * B ) ) );
-				away_obs = away_obs +(away_obs_tmp*(_SocialForcesParams.sf_wall_a * exp( (((this->radius()) - (this->position() - min_stuff.second).length())/_SocialForcesParams.sf_wall_b)))*dt
-						);
-			}
-		}
-
-	}
-	return away + away_obs;
 }
 
 Util::Vector SocialForcesAgent::calcRepulsionForce(float dt)
@@ -513,13 +394,15 @@ Util::Vector SocialForcesAgent::calcWallRepulsionForce(float dt)
 			//Vector blah3 = *blah2;
 			//blah->zero();
 
+			// cast object as obstacle, calculate normal obtain closest point wall and its distance
 			tmp_ob = dynamic_cast<SteerLib::ObstacleInterface *>(*neighbour);
 			Util::Vector wall_normal = calcWallNormal(tmp_ob);
 			std::pair<Util::Point,Util::Point> line = calcWallPointsFromNormal(tmp_ob, wall_normal);
 			std::pair<float, Util::Point> min_stuff = minimum_distance(line.first, line.second, position());
-			Util::Vector away_obs_tmp = normalize(position() - min_stuff.second);
 
-			if (min_stuff.first < powf(PREFERRED_WALL_DISTANCE, 2.0))
+			// as per Karamouzas paper: if shortest distance to wall minus radius is smaller than
+			// preferred distance to wall, calculate repulsion force
+			if (wall_normal.length() < powf(PREFERRED_WALL_DISTANCE, 2.0))
 			{
 				min_stuff.first = sqrtf(min_stuff.first);
 				if (min_stuff.first > 0)
@@ -528,7 +411,7 @@ Util::Vector SocialForcesAgent::calcWallRepulsionForce(float dt)
 
 			// as per Karamouzas paper
 			wall_repulsion_force +=
-				wall_normal * (PREFERRED_WALL_DISTANCE - (distMinRadius)) / powf( (distMinRadius) , 0.6f);
+				wall_normal * (PREFERRED_WALL_DISTANCE - (distMinRadius)) / powf( (distMinRadius) , 0.1f);
 			}
 		}
 		else
@@ -711,15 +594,9 @@ void SocialForcesAgent::updateAI(float timeStamp, float dt, unsigned int frameNu
 	}
 
 	// calculate goal force
-	//Util::Vector prefForce = ACCELERATION * (PREFERRED_SPEED * goalDirection - velocity());
-	Util::Vector prefForce = (((goalDirection * PREFERRED_SPEED) - velocity()) / (_SocialForcesParams.sf_acceleration/dt)) + velocity();
+	Util::Vector goalForce = (((goalDirection * PREFERRED_SPEED) - velocity()) / (_SocialForcesParams.sf_acceleration/dt)) + velocity();
 	Util::Vector repulsionForce = calcRepulsionForce(dt);
-	//if ( repulsionForce.x != repulsionForce.x)
-	//{
-	//	std::cout << "Found some nan" << std::endl;
-	//	repulsionForce = velocity();
-	//}
-	Util::Vector proximityForce = calcProximityForce(dt);
+
 // #define _DEBUG_ 1
 #ifdef _DEBUG_
 	std::cout << "agent" << id() << " repulsion force " << repulsionForce << std::endl;
@@ -732,7 +609,7 @@ void SocialForcesAgent::updateAI(float timeStamp, float dt, unsigned int frameNu
 		alpha=0;
 	}
 
-	_velocity = (prefForce) + repulsionForce;
+	_velocity = (goalForce) + repulsionForce;
 
 	//float angle = std::rand() * 2.0f * 3.14 / RAND_MAX;
 	//float dist = std::rand() * 0.001f / RAND_MAX;
@@ -741,6 +618,7 @@ void SocialForcesAgent::updateAI(float timeStamp, float dt, unsigned int frameNu
 
 	_velocity = clamp(velocity(), _SocialForcesParams.sf_max_speed);
 	_velocity.y=0.0f;
+
 #ifdef _DEBUG_
 	std::cout << "agent" << id() << " speed is " << velocity().length() << std::endl;
 #endif
