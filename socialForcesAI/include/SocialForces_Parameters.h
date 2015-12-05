@@ -16,18 +16,18 @@
 // #include "testcaseio/Behaviour.h"
 
 #define MAX_SPEED 3.6f
-#define PREFERRED_SPEED 2.1f // TODO not added to parameters yet.
+#define PREFERRED_SPEED 2.3f // TODO not added to parameters yet.
 
 
 //ACCELERATION (0.4 + static_cast <float> (rand()) /( static_cast <float> (RAND_MAX/(0.1-0.8)))); // = v/A
 //PERSONAL_SPACE_THRESHOLD (0.3 + static_cast <float> (rand()) /( static_cast <float> (RAND_MAX/(0.3-0.8)))); // not defined in HiDAC papaer
-#define ACCELERATION 0.7f
-#define PERSONAL_SPACE_THRESHOLD 0.4f
-#define AGENT_REPULSION_IMPORTANCE 0.8f // in HiDAC
+#define ACCELERATION 0.4f
+#define PERSONAL_SPACE_THRESHOLD 0.6f // must be larger than agent radius: 0.5
+#define AGENT_REPULSION_IMPORTANCE 0.225f // *
 #define WALL_REPULSION_IMPORTANCE 0.9f
 #define AGENT_TRACKING 3
-#define PREFERRED_WALL_DISTANCE 0.11f
-#define QUERY_RADIUS 15.0f // not defined in paper
+#define PREFERRED_WALL_DISTANCE 0.6f // must be larger than agent radius: 0.5
+#define QUERY_RADIUS 7.0f // not defined in paper
 #define BODY_FORCE 1500.0f // K (big K) 120000 / 80
 #define AGENT_BODY_FORCE 1500.0f
 #define SLIDING_FRICTION_FORCE 240000.0f // k (small k) 240000 / 80 = 3000
@@ -36,10 +36,10 @@
 #define WALL_B 0.08f //  inverse proximity force importance
 #define WALL_A 25.0f //  proximity force importance
 #define FURTHEST_LOCAL_TARGET_DISTANCE 45
-#define D_MIN 0.005f
-#define D_MID 0.73f
-#define D_MAX 0.9f
-#define AGGRESSION 0.6f
+#define D_MIN PERSONAL_SPACE_THRESHOLD
+#define D_MID 4.0f
+#define D_MAX QUERY_RADIUS * MAX_SPEED
+#define AGGRESSION 1.2f
 
 #define MASS 1
 // #define WAYPOINT_THRESHOLD_MULTIPLIER 2.5
