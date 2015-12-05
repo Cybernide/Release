@@ -247,7 +247,7 @@ Util::Vector SocialForcesAgent::calcAgentRepulsionForce(float dt, Util::Vector w
 	if ( ! _midTermPath.empty() && (!this->hasLineOfSightTo(goalInfo.targetLocation)) )
 	{
 		// get the desired velocity based on temporary goal
-		agent_desiredvelocity = _velocity + wall_repulsion + 
+		agent_desiredvelocity = velocity() + wall_repulsion + 
 			(ACCELERATION * (PREFERRED_SPEED * 
 			(normalize(_currentLocalTarget - position() ) ) 
 			- velocity() ) );
@@ -255,7 +255,7 @@ Util::Vector SocialForcesAgent::calcAgentRepulsionForce(float dt, Util::Vector w
 	else
 	{
 		// get the desired velocity based on final goal
-		agent_desiredvelocity = _velocity + wall_repulsion + 
+		agent_desiredvelocity = velocity() + wall_repulsion + 
 			(ACCELERATION * (PREFERRED_SPEED * 
 			(normalize(goalInfo.targetLocation - position() ) ) 
 			- velocity() ) );
@@ -275,8 +275,6 @@ Util::Vector SocialForcesAgent::calcAgentRepulsionForce(float dt, Util::Vector w
 	SteerLib::AgentInterface * tmp_agent;
 	std::multimap<float,SteerLib::AgentInterface *> other_agents;
 	int agent_workingmemory = 0;
-	
-	// obtain the list of neighbours and sort by collision time
 	for (std::set<SteerLib::SpatialDatabaseItemPtr>::iterator neighbour = _neighbors.begin();  
 		neighbour != _neighbors.end();  neighbour++)
 	{
@@ -287,11 +285,20 @@ Util::Vector SocialForcesAgent::calcAgentRepulsionForce(float dt, Util::Vector w
 			
 			if ( id() != tmp_agent->id() )
 			{
+				if ( tmp_agent->computePenetration(this->position(), this->radius()) > PERSONAL_SPACE_THRESHOLD )
+				{
+				other_agents.insert(std::make_pair(0.0f, tmp_agent));
+				}
+				else
+				{
+				Util::Vector relativeDir = normalize(tmp_agent->position() - this->position());
+				if ( ( relativeDir * normalize(this->velocity()) ) < cosf( (0.5f * M_PI * 200.f) / 180.f) ) continue; // i have literally no idea what this does
 				float collisiontime = timeToIntersect(this->position(), tmp_agent->position(), 
-					agent_desiredvelocity- tmp_agent->velocity() , 
+					agent_desiredvelocity - tmp_agent->velocity() , 
 					PERSONAL_SPACE_THRESHOLD + tmp_agent->radius());
 
 				other_agents.insert(std::make_pair(collisiontime, tmp_agent));
+				}
 			}
 
 		}
@@ -302,7 +309,9 @@ Util::Vector SocialForcesAgent::calcAgentRepulsionForce(float dt, Util::Vector w
 	for (std::multimap<float,SteerLib::AgentInterface *>::iterator it_other = other_agents.begin(); 
 		((it_other != other_agents.end()) && (agent_workingmemory < AGENT_TRACKING)); 
 		it_other++)
+
 	{
+		// nab the collision time, establish magnitude
 		SteerLib::AgentInterface * other = it_other->second;
 		float ct = it_other->first;
 		Util::Vector away_direction = Util::Vector(0,0,0);
@@ -313,25 +322,28 @@ Util::Vector SocialForcesAgent::calcAgentRepulsionForce(float dt, Util::Vector w
 		Util::Point agent_CollPos = this->position() + ct * agent_desiredvelocity;
 		away_direction = (agent_CollPos - otherCollPos)/(agent_CollPos - otherCollPos).length();
 		float distToCollision = ((agent_CollPos - this->position()).length()) + ((agent_CollPos - otherCollPos).length() - this->radius() - other->radius());
-
+		float D = std::max(agent_desiredvelocity.length() * ct + distToCollision, FLT_EPSILON); // this differs from the paper
 		// magnitude of force
-		if ( distToCollision < D_MIN ) {
-			mag = AGGRESSION * D_MIN / distToCollision;
-		} else if ( distToCollision < D_MID ) {
+		if ( D < D_MIN ) {
+			mag = AGGRESSION * D_MIN / D;
+		} else if ( D < D_MID ) {
 			mag = AGGRESSION;
-		} else if ( distToCollision < D_MAX ) {
-			mag = AGGRESSION * (D_MAX - distToCollision)/(D_MAX - D_MID);
+		} else if ( D < D_MAX ) {
+			mag = AGGRESSION * (D_MAX - D)/(D_MAX - D_MID);
 		} else {
 			continue;	// magnitude is zero
 		}
 		agent_workingmemory += 1;
-		agent_repulsion_force += pow(mag,(1/agent_workingmemory)) * away_direction;
+		mag *= powf((ct == 0.0f?1.0f:AGENT_REPULSION_IMPORTANCE), agent_workingmemory);
+		agent_repulsion_force += mag * away_direction;
 		
 	}
 
 
 	return agent_repulsion_force;
 }
+
+
 
 std::pair<float, Util::Point> minimum_distance(Util::Point l1, Util::Point l2, Util::Point p)
 {
@@ -389,12 +401,8 @@ Util::Vector SocialForcesAgent::calcWallRepulsionForce(float dt)
 	{
 		if ( !(*neighbour)->isAgent() )
 		{
-			//Vector* blah = new Util::Vector();
-			//Vector* blah2 = new Util::Vector(0, 0, 0);
-			//Vector blah3 = *blah2;
-			//blah->zero();
 
-			// cast object as obstacle, calculate normal obtain closest point wall and its distance
+			// cast object as obstacle, calculate normal, obtain closest point wall and its distance
 			tmp_ob = dynamic_cast<SteerLib::ObstacleInterface *>(*neighbour);
 			Util::Vector wall_normal = calcWallNormal(tmp_ob);
 			std::pair<Util::Point,Util::Point> line = calcWallPointsFromNormal(tmp_ob, wall_normal);
@@ -402,16 +410,16 @@ Util::Vector SocialForcesAgent::calcWallRepulsionForce(float dt)
 
 			// as per Karamouzas paper: if shortest distance to wall minus radius is smaller than
 			// preferred distance to wall, calculate repulsion force
-			if (wall_normal.length() < powf(PREFERRED_WALL_DISTANCE, 2.0))
+			if (powf(min_stuff.first, 2.0) < powf(PREFERRED_WALL_DISTANCE, 2.0))
 			{
-				min_stuff.first = sqrtf(min_stuff.first);
-				if (min_stuff.first > 0)
-					min_stuff.first /= wall_normal.length();
+				//min_stuff.first = sqrtf(min_stuff.first);
+				if (min_stuff.first > 0.0)
+					wall_normal /= min_stuff.first;
 				 float distMinRadius = (min_stuff.first - radius()) < FLT_EPSILON? FLT_EPSILON : min_stuff.first - radius();
 
 			// as per Karamouzas paper
 			wall_repulsion_force +=
-				wall_normal * (PREFERRED_WALL_DISTANCE - (distMinRadius)) / powf( (distMinRadius) , 0.1f);
+				wall_normal * (PREFERRED_WALL_DISTANCE + (radius() - min_stuff.first)) / powf( (distMinRadius) , 2.1f);
 			}
 		}
 		else
@@ -563,18 +571,9 @@ Util::Vector SocialForcesAgent::calcObsNormal(SteerLib::ObstacleInterface* obs)
 	return normalize(position() - obs_centre);
 }
 
-
-void SocialForcesAgent::updateAI(float timeStamp, float dt, unsigned int frameNumber)
+std::pair<Util::Vector, Util::Vector> SocialForcesAgent::calcGoalForce(float dt, SteerLib::AgentGoalInfo goalInfo)
 {
-	Util::AutomaticFunctionProfiler profileThisFunction( &SocialForcesGlobals::gPhaseProfilers->aiProfiler );
-	if (!enabled())
-	{
-		return;
-	}
-
-	Util::AxisAlignedBox oldBounds(_position.x - _radius, _position.x + _radius, 0.0f, 0.0f, _position.z - _radius, _position.z + _radius);
-
-	SteerLib::AgentGoalInfo goalInfo = _goalQueue.front();
+	// get goal direction and force (this function is used repeatedly)
 	Util::Vector goalDirection;
 	if ( ! _midTermPath.empty() && (!this->hasLineOfSightTo(goalInfo.targetLocation)) )
 	{
@@ -594,7 +593,30 @@ void SocialForcesAgent::updateAI(float timeStamp, float dt, unsigned int frameNu
 	}
 
 	// calculate goal force
-	Util::Vector goalForce = (((goalDirection * PREFERRED_SPEED) - velocity()) / (_SocialForcesParams.sf_acceleration/dt)) + velocity();
+	Util::Vector goalForce = (((goalDirection * PREFERRED_SPEED) - velocity()) /
+		(_SocialForcesParams.sf_acceleration/dt)) + 
+		velocity();
+
+	return std::make_pair(goalDirection,goalForce);
+}
+
+void SocialForcesAgent::updateAI(float timeStamp, float dt, unsigned int frameNumber)
+{
+	Util::AutomaticFunctionProfiler profileThisFunction( &SocialForcesGlobals::gPhaseProfilers->aiProfiler );
+	if (!enabled())
+	{
+		return;
+	}
+
+	Util::AxisAlignedBox oldBounds(_position.x - _radius, _position.x + _radius, 0.0f, 0.0f, _position.z - _radius, _position.z + _radius);
+
+	SteerLib::AgentGoalInfo goalInfo = _goalQueue.front();
+	
+	
+
+	std::pair<Util::Vector, Util::Vector> goalDirForce = calcGoalForce(dt, goalInfo);
+	Util::Vector goalDirection = goalDirForce.first;
+	Util::Vector goalForce = goalDirForce.second;
 	Util::Vector repulsionForce = calcRepulsionForce(dt);
 
 // #define _DEBUG_ 1
@@ -611,9 +633,10 @@ void SocialForcesAgent::updateAI(float timeStamp, float dt, unsigned int frameNu
 
 	_velocity = (goalForce) + repulsionForce;
 
-	//float angle = std::rand() * 2.0f * 3.14 / RAND_MAX;
-	//float dist = std::rand() * 0.001f / RAND_MAX;
-    //_velocity += dist* Util::Vector(cos(angle), sin(angle), dist); 
+	// Karamouzas et al implemented a noise function to account for random actions
+	float angle = std::rand() * 2.0f * 3.14 / RAND_MAX;
+	float dist = std::rand() * 0.001f / RAND_MAX;
+    _velocity += dist* Util::Vector(cos(angle), sin(angle), dist); 
 
 
 	_velocity = clamp(velocity(), _SocialForcesParams.sf_max_speed);

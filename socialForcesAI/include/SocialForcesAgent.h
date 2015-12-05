@@ -102,6 +102,7 @@ private:
 
 	Util::Vector calcAgentRepulsionForce(float dt, Util::Vector wall_repulsion);
 	Util::Vector calcWallRepulsionForce(float dt);
+	std::pair<Util::Vector, Util::Vector> SocialForcesAgent::calcGoalForce(float dt, SteerLib::AgentGoalInfo goalInfo);
 
 	Util::Vector calcWallNormal(SteerLib::ObstacleInterface* obs);
 	std::pair<Util::Point, Util::Point> calcWallPointsFromNormal(SteerLib::ObstacleInterface* obs, Util::Vector normal);
