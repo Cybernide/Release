@@ -21,9 +21,10 @@
 
 //ACCELERATION (0.4 + static_cast <float> (rand()) /( static_cast <float> (RAND_MAX/(0.1-0.8)))); // = v/A
 //PERSONAL_SPACE_THRESHOLD (0.3 + static_cast <float> (rand()) /( static_cast <float> (RAND_MAX/(0.3-0.8)))); // not defined in HiDAC papaer
+//#define ACCELERATION (0.4f + (rand())/(RAND_MAX/0.1-0.3);
 #define ACCELERATION 0.4f
 #define PERSONAL_SPACE_THRESHOLD 0.6f // must be larger than agent radius: 0.5
-#define AGENT_REPULSION_IMPORTANCE 0.225f // *
+#define AGENT_REPULSION_IMPORTANCE 0.255f // * 0.225
 #define WALL_REPULSION_IMPORTANCE 0.9f
 #define AGENT_TRACKING 3
 #define PREFERRED_WALL_DISTANCE 0.6f // must be larger than agent radius: 0.5

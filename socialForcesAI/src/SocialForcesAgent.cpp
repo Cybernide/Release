@@ -241,7 +241,6 @@ Util::Vector SocialForcesAgent::calcAgentRepulsionForce(float dt, Util::Vector w
 	std::pair<Util::Vector,Util::Vector> agent_goalFInfo = calcGoalForce(dt,_goalQueue.front());
 
 	Util::Vector agent_desiredvelocity;
-	Util::Point agent_nextlocation;
 
 	// Calculate the desired velocity and estimated position of agent A
 	agent_desiredvelocity = agent_goalFInfo.first + wall_repulsion;
@@ -266,19 +265,26 @@ Util::Vector SocialForcesAgent::calcAgentRepulsionForce(float dt, Util::Vector w
 		if ( (*neighbour)->isAgent() )
 		{
 			tmp_agent = dynamic_cast<SteerLib::AgentInterface *>(*neighbour);
-			Util::Point tmp_agent_nextlocation = tmp_agent->position() + tmp_agent->velocity();
-			agent_nextlocation = position() + agent_desiredvelocity;
 			
 			if ( id() != tmp_agent->id() )
 			{
-				if ( tmp_agent->computePenetration(this->position(), this->radius()) > PERSONAL_SPACE_THRESHOLD*PERSONAL_SPACE_THRESHOLD )
+				// if the other guy is getting too close...
+				if ( tmp_agent->computePenetration(this->position(), this->radius()) > 
+					PERSONAL_SPACE_THRESHOLD*PERSONAL_SPACE_THRESHOLD )	
 				{
+				// make getting away from him the top priority -- insert time to collision and agent
+				// in one of the top places in the map
 				other_agents.insert(std::make_pair(0.0f, tmp_agent));
+				
 				}
 				else
 				{
+				// initialize variables that will be used to compute repulsive forces
 				Util::Vector relativeDir = normalize(tmp_agent->position() - this->position());
-				if ( ( relativeDir * normalize(this->velocity()) ) < cosf( (0.5f * M_PI * 200.f) / 180.f) ) continue; // i have literally no idea what this does
+				// I have literally no idea what this next 'if' statement does
+				// but it's used in Karamouzas' code and seems to make things work better
+				if ( ( relativeDir * normalize(this->velocity()) ) < 
+					cosf( (0.5f * M_PI * 200.f) / 180.f) ) continue; 
 				float collisiontime = timeToIntersect(this->position(), tmp_agent->position(), 
 					agent_desiredvelocity - tmp_agent->velocity() , 
 					PERSONAL_SPACE_THRESHOLD + tmp_agent->radius());
@@ -307,7 +313,8 @@ Util::Vector SocialForcesAgent::calcAgentRepulsionForce(float dt, Util::Vector w
 		Util::Point otherCollPos = other->position() + ct * other->velocity();
 		Util::Point agent_CollPos = this->position() + ct * agent_desiredvelocity;
 		away_direction = (agent_CollPos - otherCollPos)/(agent_CollPos - otherCollPos).length();
-		float distToCollision = ((agent_CollPos - this->position()).length()) + ((agent_CollPos - otherCollPos).length() - this->radius() - other->radius());
+		float distToCollision = ((agent_CollPos - this->position()).length()) + 
+			((agent_CollPos - otherCollPos).length() - this->radius() - other->radius());
 		float D = std::max(agent_desiredvelocity.length() * ct + distToCollision, 0.0001f); // this differs from the paper
 		// magnitude of force
 		if ( D < D_MIN ) {
@@ -319,9 +326,11 @@ Util::Vector SocialForcesAgent::calcAgentRepulsionForce(float dt, Util::Vector w
 		} else {
 			continue;	// magnitude is zero
 		}
+		// calculate evasive force, apply it and see if this causes collisions with other agents
 		agent_workingmemory += 1;
 		mag *= powf((ct == 0.0f?1.0f:AGENT_REPULSION_IMPORTANCE), agent_workingmemory);
 		agent_repulsion_force += mag * away_direction;
+		// use this value to determine whether or not other collisions occur
 		agent_desiredvelocity += agent_repulsion_force;
 	}
 
@@ -398,7 +407,7 @@ Util::Vector SocialForcesAgent::calcWallRepulsionForce(float dt)
 			// preferred distance to wall, calculate repulsion force
 			if (powf(min_stuff.first, 2.0) < powf(PREFERRED_WALL_DISTANCE, 2.0))
 			{
-				//min_stuff.first = sqrtf(min_stuff.first);
+				// basically scales back the force if the collision isn't imminent
 				if (min_stuff.first > 0.0)
 					wall_normal /= min_stuff.first;
 				 float distMinRadius = (min_stuff.first - radius()) < 0.0001f? 0.0001f : min_stuff.first - radius();
@@ -561,8 +570,10 @@ std::pair<Util::Vector, Util::Vector> SocialForcesAgent::calcGoalForce(float dt,
 {
 	// get goal direction and force (this function is used repeatedly)
 	Util::Vector goalDirection;
+	// given next goal, calculate the goal direction
 	if ( ! _midTermPath.empty() && (!this->hasLineOfSightTo(goalInfo.targetLocation)) )
 	{
+		// if this is a mid-way goal, calculate accordingly
 		if (reachedCurrentWaypoint())
 		{
 			this->updateMidTermPath();
@@ -575,6 +586,7 @@ std::pair<Util::Vector, Util::Vector> SocialForcesAgent::calcGoalForce(float dt,
 	}
 	else
 	{
+		// likewise if its the final goal
 		goalDirection = normalize(goalInfo.targetLocation - position());
 	}
 
@@ -583,6 +595,7 @@ std::pair<Util::Vector, Util::Vector> SocialForcesAgent::calcGoalForce(float dt,
 		(_SocialForcesParams.sf_acceleration/dt)) + 
 		velocity();
 
+	// send both back to whoever called
 	return std::make_pair(goalDirection,goalForce);
 }
 
@@ -617,6 +630,7 @@ void SocialForcesAgent::updateAI(float timeStamp, float dt, unsigned int frameNu
 		alpha=0;
 	}
 
+	// the updated velocity value
 	_velocity = (goalForce) + repulsionForce;
 
 	// Karamouzas et al implemented a noise function to account for random actions
